@@ -1,0 +1,158 @@
+# vim: fileencoding=utf-8 ts=4 sw=4 sts=4 et
+
+from base import TesterBase, leaders
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
+
+class UserTester (TesterBase):
+    def u_expert_types(self):
+        o = self.user_get('api/user/query_expert_types.json?')
+        return self.ret(o, lambda: o['data']['result'][1]['labelId'] > 0)
+
+    def u_experts_by_type(self):
+        o = self.user_get('api/user/query_expert_by_type.json?labelId=1&')
+        return self.ret(o, lambda: o['data']['result'][0]['userId'] > 0)
+
+    def othermember_info(self):
+        o = self.comm_get('api/user/get_othermember_info.json?memberId={uid}&', uid=self.cfg['userId'])
+        return self.ret(o, lambda: o['data']['imId'] == self.cfg['imId'])
+
+    def u_sharerecord_list(self):
+        o = self.user_get('api/user/get_sharerecord_list.json?memberId={uid}&', uid=self.cfg['userId'])
+        return self.ret(o, lambda: o['data']['result'][0]['productId'] > 0)
+
+    def u_personal_info(self):
+        o = self.user_get('api/user/get_personal_info.json?')
+        return self.ret(o, lambda: o['data']['userId'] > 0)
+
+    def u_my_acount(self):
+        o = self.user_get('api/account/my_acount.json?')
+        return self.ret(o, lambda: True)
+
+    def u_shop_collection(self):
+        o = self.user_get('api/user/shop_collection.json?')
+        return self.ret(o, lambda: True)
+
+    def u_product_collection(self):
+        o = self.user_get('api/user/product_collection.json?')
+        return self.ret(o, lambda: True)
+
+    def _query_vshop_info_by_user_id(self):
+        # o = self.user_get('api/vshop/query_vshop_info_by_user_id.json?')
+        # p(o)
+        pass
+
+    def _shop_detail(self):
+        # o = self.user_get('api/shop/shop_detail.json?shopId=1&')
+        # p(o)
+        pass
+
+    def feedback_type_list(self):
+        o = self.comm_get('api/user/get_feedback_type_list.json?')
+        return self.ret(o, lambda: True)
+
+    def u_feedback_list_1(self):
+        o = self.user_get('api/user/feedback_list_1.json?')
+        return self.ret(o, lambda: True)
+
+    def u_topic_collect_list(self):
+        o = self.user_get('api/user/get_topic_collect_list.json?')
+        return self.ret(o, lambda: True)
+
+    def u_address_detail(self):
+        o = self.user_get('api/user/address_detail.json?addressId={addrId}&', addrId=self.cfg['addrId'])
+        return self.ret(o, lambda: o['data']['userId'] > 0)
+
+    def u_address_list(self):
+        o = self.user_get('api/user/address_list.json?')
+        return self.ret(o, lambda: True)
+
+    def u_referee_list(self):
+        o = self.user_get('api/user/get_referee_list.json?')
+        return self.ret(o, lambda: True)
+
+    def get_personal_info_by_mobile(self):
+        o = self.comm_get('api/user/get_personal_info_by_mobile.json?mobile=18911261622&')
+        return self.ret(o, lambda: True)
+
+    def shop_detail(self):
+        o = self.comm_get('api/shop/shop_detail.json?shopId={shopid}&', shopid=self.cfg['shopId'])
+        return self.ret(o, lambda: True)
+
+    def item_list(self):
+        o = self.comm_get('api/vshop/item_list.json?shopId={shopid}&type=1&', shopid=self.cfg['shopId'])
+        return self.ret(o, lambda: True)
+
+    def u_item_manage_list(self):
+        o = self.user_get('api/vshop/item_manage_list.json?shopId={shopid}&type=1&', shopid=self.cfg['shopId'])
+        return self.ret(o, lambda: True)
+
+    def u_vshop_category_list(self):
+        o = self.user_get('api/vshop/query_vshop_category_list.json?vshopId={vshopid}&', vshopid=self.cfg['vshopId'])
+        return self.ret(o, lambda: True)
+
+    def u_distribution_item_list(self):
+        o = self.user_get('api/vshop/query_distribution_item_list.json?shopId={shopid}&', shopid=self.cfg['shopId'])
+        return self.ret(o, lambda: True)
+
+    def u_vshop_product_list_by_category(self):
+        o = self.user_get('api/vshop/query_vshop_product_list_by_category.json?vshopId={vshopid}&categoryId=1&categoryName=1&roleId=1&', vshopid=self.cfg['vshopId'])
+        return self.ret(o, lambda: True)
+
+    def get_freight_template_list(self):
+        o = self.comm_get('api/vshop/get_freight_template_list.json?')
+        return self.ret(o, lambda: True)
+
+    # v2
+    def user_info(self):
+        r = self.comm_get_v2('v2/user/user?id={uid}&integrity=full&', uid=self.cfg['userId'])
+        return self.ret_v2(r, lambda: True)
+
+    def get_my_interest_categories(self):
+        r = self.user_get_v2('v2/user/myInterestCategories?', uid=self.cfg['userId'])
+        return self.ret_v2(r, lambda: True)
+
+    def get_personalInfo(self):
+        r = self.user_get_v2('v2/user/personalInfo?', uid=self.cfg['userId'])
+        return self.ret_v2(r, lambda: True)
+
+jiale =        [(u"贾乐",   "13146793740"),]
+yangyanyan =   [(u"杨艳艳", "18410158852"),]
+fengxin =      [(u"冯鑫",   "18610905809"),]
+guowenbo =      [(u"郭文博",   "17701314266"),]
+zhongbin =      [(u"钟斌",   "13001281769"),]
+
+user_cases = [
+    ('othermember_info',        u'609_获取他人个人主页用户信息', leaders + jiale),
+    ('login',                   u'99_登录', leaders + yangyanyan, u'所有登录相关接口可能都受影响。'),
+    ('u_expert_types',          u'606_获取达人分类', leaders + jiale),
+    ('u_experts_by_type',       u'607_根据达人分类获取达人列表', leaders + jiale),
+    ('u_sharerecord_list',      u'603_获取商品分享列表', leaders + yangyanyan),
+    ('u_personal_info',         u'95_获取个人信息', leaders + yangyanyan),
+    ('u_shop_collection',       u'*137_店铺收藏列表', leaders + yangyanyan),
+    ('u_product_collection',    u'*138_产品收藏列表', leaders + yangyanyan),
+    ('u_my_acount',             u'166_我的账户首页', leaders + fengxin),
+    ('feedback_type_list', u'624_获取意见反馈留言类型', leaders),
+    ('u_feedback_list_1', u'622_意见反馈列表_V1', leaders),
+    ('u_topic_collect_list', u'626_我的-收藏-收藏的话题列表', leaders + zhongbin),
+    ('u_address_detail', u'107_收获地址详情', leaders),
+    ('u_address_list', u'106_收获地址列表', leaders),
+    #('u_referee_list', u'632_获取查询会员推荐关系好友列表', leaders),
+    ('get_personal_info_by_mobile', u'633_通过手机号获取查询会员信息', leaders),
+    ('shop_detail', u'32_店铺详情页', leaders),
+    ('item_list', u'610_店铺商品列表', leaders),
+    ('u_item_manage_list', u'611_店铺商品管理列表（主态）', leaders),
+    ('u_vshop_category_list', u'254_获取分类页', leaders),
+    ('u_distribution_item_list', u'614_获取可分销的商品列表', leaders),
+    ('u_vshop_product_list_by_category', u'269_获取店铺分类下的商品列表', leaders),
+    ('get_freight_template_list', u'322_pop商家获取运费模板', leaders),
+]
+
+user_cases_v2 = [
+    ('user_info', u'会员信息(无登录查询)', leaders),
+    ('login', u'登录', leaders),
+    ('get_my_interest_categories', u'获取会员的兴趣点信息', leaders),
+    ('get_personalInfo', u'获取完整会员信息', leaders),
+]

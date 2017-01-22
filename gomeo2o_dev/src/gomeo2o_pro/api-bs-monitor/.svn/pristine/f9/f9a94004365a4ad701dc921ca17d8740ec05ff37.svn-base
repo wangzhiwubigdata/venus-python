@@ -1,0 +1,158 @@
+#!/usr/bin/env python
+# vim: fileencoding=utf-8 ts=4 sw=4 sts=4 et
+
+import datetime
+import sys
+import traceback
+import urllib
+
+from base import Requester
+from order import OrderTester, order_cases
+from product import ProductTester, product_cases
+from rebate import RebateTesters, rebate_cases
+from social import SocialTester, social_cases
+from user import UserTester, user_cases, user_cases_v2
+
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
+
+class Tester (UserTester, RebateTesters, OrderTester, ProductTester, SocialTester):
+    pass
+
+
+cases = user_cases + rebate_cases + order_cases + product_cases + social_cases
+
+cases_v2 = user_cases_v2
+
+def sms_send(num, txt):
+    req = Requester(host='api.bs.dev.gomeplus.com', user='servertest', pwd='gome1234567')
+    encoded_txt = urllib.quote(txt.encode('utf-8'))
+    # req.get('innerwork/send_warning_sms.json?phone={num}&content={txt}', host='api.bs.dev.gomeplus.com',
+    # num=num, txt=encoded_txt)
+
+
+def dummy_send(num, txt):
+    pass
+
+
+def do_test(tester, version):
+    print ''
+    d = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    fails = 0
+    print u'{date} {env}环境测试开始'.format(env=tester.env, date=d)
+    test_cases = cases
+    if version == 'v2':
+        test_cases = cases_v2
+    elif version == 'v1':
+        test_cases = cases
+    else:
+        test_cases = cases + cases_v2
+
+    for case in test_cases:
+        try:
+            r = getattr(tester, case[0])()
+        except:
+            print traceback.format_exc()
+            r = 0
+        if r == 1:
+            print case[1], ' OK'
+            continue
+        fails += 1
+        txt = u'{date} 接口【{info}】调用失败，请检查。' .format(date=d, info=case[1])
+        cont = (len(case) <= 3)
+        if len(case) > 3:
+            txt += case[3]
+        for user in case[2]:
+            print user[1], txt
+            tester.sms_send(user[1], txt)
+        if not cont:
+            break
+
+    print ''
+    print u'{env}环境测试完毕，{fails} 项目失败。'.format(env=tester.env, fails=fails)
+    return fails
+
+test_configs = {
+    'pro': {
+        'host': None,
+        'userId': '1425',
+        'imId': 'b_1425',
+        'gimid': 'b_2937',
+        'gid': '141627228529098768',
+        'topicId': '56cd8cdd799d0d127473ed22',
+        'shopId': '141',
+        'proId': '489',
+        'vshopId': '571',
+        'addrId': '6343',
+        'sms_send': sms_send,
+        'name': '生产',
+    },
+    'pre': {
+        'host': 'api-bs-pre.gomeplus.com',
+        'userId': '832',
+        'imId': 'b_832',
+        'gimid': 'b_578',
+        'gid': '142584646859751472',
+        'topicId': '',
+        'shopId': '141',
+        'proId': '489',
+        'vshopId': '571',
+        'sms_send': dummy_send,
+        'name': '预生产',
+    },
+    'test': {
+        'host': 'api.bs.test.gomeplus.com',
+        'userId': '2135',
+        'imId': 'b_2135',
+        'gimid': 'b_2135',
+        'gid': '150438132498563076',
+        'topicId': '',
+        'shopId': '2061',
+        'proId': '1599',
+        'vshopId': '571',
+        'sms_send': dummy_send,
+        'name': '测试',
+    },
+    'dev': {
+        'host': 'api.bs.dev.gomeplus.com',
+        'userId': '583',
+        'imId': 'b_583',
+        'gimid': 'b_583',
+        'gid': '1451381645504927',
+        'topicId': '',
+        'shopId': '14',
+        'proId': '120',
+        'vshopId': '571',
+        'sms_send': dummy_send,
+        'name': '开发',
+    }
+}
+
+if __name__ == '__main__':
+    env = 'pro'
+    param_size = len(sys.argv)
+    #params env
+    if param_size > 1:
+        env = sys.argv[1]
+    if env not in test_configs:
+        print u'没有{env}环境配置'.format(env=env)
+        sys.exit(127)
+
+    cfg = test_configs[env]
+    host = cfg['host']
+
+    #params env host
+    if param_size > 2:
+        host = sys.argv[2]
+
+    version = ''
+    if param_size > 3:
+        version = sys.argv[3]
+
+    if version != 'v1' and version != 'v2' and version != '':
+        print 'wrong version param!'
+        sys.exit(127)
+
+    print u'host: {host}'.format(host=host)
+    sys.exit(do_test(Tester(cfg, Requester(host, user='bs_server', pwd='gome1234567')), version))

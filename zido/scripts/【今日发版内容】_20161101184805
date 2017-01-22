@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2016-10-28 发版需求 - 测试部 - Gomeplus WiKi</title>
+
+        
+
+                        
+    
+                        
+    
+
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+<meta charset="UTF-8">
+<!-- Deprecated since 3.4. To be removed in a future version of Confluence; use AJS.Confluence.getContextPath() -->
+<meta id="confluence-context-path" name="confluence-context-path" content="">
+<meta id="confluence-base-url" name="confluence-base-url" content="http://wiki.intra.gomeplus.com">
+
+<meta id="atlassian-token" name="atlassian-token" content="b60ecc272fd7541200cce0b8d32c37a862f968b4">
+
+<meta id="confluence-space-key" name="confluence-space-key" content="Ceshi">
+<script type="text/javascript">
+    // Deprecated global variables. To be removed in a future version of Confluence.
+    var contextPath = '';
+</script>
+
+    
+
+<!-- include system css resources -->
+
+
+    <!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/76/_/download/superbatch/css/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/76/_/download/superbatch/css/batch.css?media=print" media="print">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/76/_/download/superbatch/css/batch.css" media="all">
+<!--[if gte IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/76/_/download/superbatch/css/batch.css?conditionalComment=gte+IE+9" media="all">
+<![endif]-->
+<!--[if lte IE 8]>
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/76/_/download/superbatch/css/batch.css?conditionalComment=lte+IE+8" media="all">
+<![endif]-->
+<!--[if lte IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/76/_/download/superbatch/css/batch.css?conditionalComment=lte+IE+9" media="all">
+<![endif]-->
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/1221769f75e62873c83bf3447d5bde9c/_/download/contextbatch/css/page/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/1221769f75e62873c83bf3447d5bde9c/_/download/contextbatch/css/page/batch.css" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/153647f43d1997d24915c41b70466def/_/download/contextbatch/css/viewcontent/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/153647f43d1997d24915c41b70466def/_/download/contextbatch/css/viewcontent/batch.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/7aae0184a7b6ec3199b291543c74e957/_/download/contextbatch/css/plugin.quick.comment.pre/batch.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/8e7794ed0b3f7250e821f039712610bc/_/download/contextbatch/css/main/batch.css" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/b9fab518608a0f001c295765864a80e4/_/download/contextbatch/css/atl.general/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/b9fab518608a0f001c295765864a80e4/_/download/contextbatch/css/atl.general/batch.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/2.1.5/_/download/batch/com.atlassian.confluence.plugins.pagetree:pagetree-resources/com.atlassian.confluence.plugins.pagetree:pagetree-resources.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/2.1.5/_/download/batch/com.atlassian.confluence.plugins.pagetree:pagetree-pdg-resources/com.atlassian.confluence.plugins.pagetree:pagetree-pdg-resources.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/1.1.22/_/download/batch/com.atlassian.mywork.mywork-confluence-host-plugin:mw-header-anchor/com.atlassian.mywork.mywork-confluence-host-plugin:mw-header-anchor.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/3/_/styles/colors.css?spaceKey=Ceshi" media="all">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/5.1/_/download/resources/com.atlassian.confluence.plugins.doctheme:documentation/default-theme.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/5.1/_/download/resources/com.atlassian.confluence.plugins.doctheme:documentation/doc-theme.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/5.1/_/download/resources/com.atlassian.confluence.plugins.doctheme:documentation/splitter.css" media="all">
+
+<!-- end system css resources -->
+
+    <meta name="confluence-request-time" content="1477997285942">
+<!-- Deprecated since 3.4. To be removed in a future version of Confluence; use atl.header -->
+        
+            <script type="text/x-template" title="share-content-popup">
+    <form action="#" method="post" class="aui share-content-popup">
+        <div class="field-group">
+            <div class="autocomplete-user-target">
+                <input class="text autocomplete-sharepage" id="users" data-max="10" data-dropdown-target=".autocomplete-user-target" data-none-message="没有找到匹配的用户或电子邮件" placeholder="用户名或电子邮件"/>
+            </div>
+            <ol class="recipients">
+            </ol>
+        </div>
+        <div class="field-group">
+            <textarea class="textarea" id="note" placeholder="添加一个可选的说明"/>
+        </div>
+        <div class="field-group button-panel">
+            <div class="progress-messages-icon"></div>
+            <div class="progress-messages">
+            </div>
+            <input class="button submit" type="submit" value="分享" disabled/>
+            <a class="close-dialog" href="#">取消</a>
+        </div>
+    </form>
+</script>
+
+<script type="text/x-template" title="share-content-popup-recipient-username">
+    <li data-username="{username}" style="display: none">
+        <span>
+            <img src="{thumbnailLink.href}" title="{title}">
+            <span>{title}</span>
+            <span class="remove-recipient"/>
+        </span>
+    </li>
+</script>
+
+<script type="text/x-template" title="share-content-popup-recipient-email">
+    <li data-email="{email}" style="display: none">
+        <span>
+            <img src="{icon}" title="{email}">
+            <span>{email}</span>
+            <span class="remove-recipient"/>
+        </span>
+    </li>
+</script>
+    
+        
+            <meta name="ajs-use-keyboard-shortcuts" content="true">
+            <meta name="ajs-keyboardshortcut-hash" content="24babfd1e63370415017660904aefec1">
+            <meta name="ap-request-id" content="711f8e646a653059">
+            <style>.ia-fixed-sidebar, .ia-splitter-left {width: 285px;}.theme-default .ia-splitter #main {margin-left: 285px;}.acs-side-bar {visibility: hidden;}</style>
+            
+
+    
+            
+    
+    
+            <meta name="ajs-page-id" content="17762082">
+            <meta name="ajs-content-type" content="page">
+            <meta name="ajs-page-title" content="2016-10-28 发版需求">
+            <meta name="ajs-parent-page-title" content="发版需求_10月">
+            <meta name="ajs-parent-page-id" content="17761025">
+            <meta name="ajs-space-key" content="Ceshi">
+            <meta name="ajs-space-name" content="测试部">
+            <meta name="ajs-from-page-title" content="">
+            <meta name="ajs-user-display-name" content="王森-技术中心-测试部">
+            <meta name="ajs-editor.loader.comment.resources" content="&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/972896400fbc66c55cfa63b2d6ca1c26/_/download/contextbatch/css/comment-editor/batch.css&quot; media=&quot;all&quot;&gt;
+">
+            <meta name="ajs-context-path" content="">
+            <meta name="ajs-base-url" content="http://wiki.intra.gomeplus.com">
+            <meta name="ajs-version-number" content="5.1">
+            <meta name="ajs-build-number" content="4215">
+            <meta name="ajs-remote-user" content="wangsen">
+            <meta name="ajs-static-resource-url-prefix" content="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/_">
+            <meta name="ajs-global-settings-attachment-max-size" content="10485760">
+            <meta name="ajs-user-locale" content="zh_CN">
+            <meta name="ajs-enabled-dark-features" content="">
+            <meta name="ajs-atl-token" content="b60ecc272fd7541200cce0b8d32c37a862f968b4">
+            <meta name="ajs-confluence-flavour" content="VANILLA">
+            <meta name="ajs-editor.loader.resources" content="&lt;!--[if lt IE 9]&gt;
+&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/3a7dc8fdf543f82fc1f36d9225eb8a0a/_/download/contextbatch/css/editor,macro-browser,fullpage-editor,-viewcontent/batch.css?conditionalComment=lt+IE+9&quot; media=&quot;all&quot;&gt;
+&lt;![endif]--&gt;
+&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/3a7dc8fdf543f82fc1f36d9225eb8a0a/_/download/contextbatch/css/editor,macro-browser,fullpage-editor,-viewcontent/batch.css&quot; media=&quot;all&quot;&gt;
+&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/3a7dc8fdf543f82fc1f36d9225eb8a0a/_/download/contextbatch/css/editor,macro-browser,fullpage-editor,-viewcontent/batch.css?media=%28max-width%3A+1270px%29&quot; media=&quot;(max-width: 1270px)&quot;&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/3a7dc8fdf543f82fc1f36d9225eb8a0a/_/download/contextbatch/js/editor,macro-browser,fullpage-editor,-viewcontent/batch.js&quot; &gt;&lt;/script&gt;
+">
+            <meta name="ajs-date.format" content="MMM dd, yyyy">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch/osd.action" title="Gomeplus WiKi"/>
+
+    <!-- include system javascript resources -->
+    <script type="text/javascript" src="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/76/_/download/superbatch/js/batch.js" ></script>
+<!--[if lte IE 8]>
+<script type="text/javascript" src="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/76/_/download/superbatch/js/batch.js?conditionalComment=lte+IE+8" ></script>
+<![endif]-->
+<script type="text/javascript" src="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/1221769f75e62873c83bf3447d5bde9c/_/download/contextbatch/js/page/batch.js" ></script>
+<script type="text/javascript" src="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/f0846e8a41dbd51ce57fba03347d0f6b/_/download/contextbatch/js/viewcontent,main,plugin.quick.comment.pre,atl.general/batch.js" ></script>
+<script type="text/javascript" src="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/15ea5faf37e60ea2c9349603e0aab48a/_/download/contextbatch/js/atl.comments/batch.js" ></script>
+<script type="text/javascript" src="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/2.1.5/_/download/batch/com.atlassian.confluence.plugins.pagetree:pagetree-resources/com.atlassian.confluence.plugins.pagetree:pagetree-resources.js" ></script>
+<script type="text/javascript" src="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/1.1.22/_/download/batch/com.atlassian.mywork.mywork-confluence-host-plugin:mw-header-anchor/com.atlassian.mywork.mywork-confluence-host-plugin:mw-header-anchor.js" ></script>
+
+    
+
+        
+    <!-- end system javascript resources -->
+    
+
+    
+                <link rel="canonical" href="http://wiki.intra.gomeplus.com/pages/viewpage.action?pageId=17762082">
+        <link rel="shortlink" href="http://wiki.intra.gomeplus.com/x/IgcPAQ">
+    <meta name="wikilink" content="[Ceshi:2016-10-28 发版需求]">
+    <meta name="page-version" content="16">
+
+</head>
+
+<body             onload="placeFocus()"
+     id="com-atlassian-confluence" class="theme-documentation  aui-theme-default aui-layout">
+
+        
+    <div id="full-height-container">
+    <div id="header-precursor">
+        
+                    </div>
+
+
+
+
+
+
+<header id="header" role="banner">
+    <nav class="aui-header aui-dropdown2-trigger-group" role="navigation"><div class="aui-header-inner"><div class="aui-header-primary"><h1 id="logo" class="aui-header-logo aui-header-logo-custom"><a href="/"><img src="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/_/images/logo/confluence-logo.png" alt="Gomeplus WiKi" /></a></h1><ul class="aui-nav">
+                            <li>
+            
+        
+        
+<a  id="space-directory-link" href="/spacedirectory/view.action"  class=" aui-nav-imagelink"   title="Spaces">
+            <span>Spaces</span>
+    </a>
+        </li>
+                    <li>
+            
+    
+        
+<a  id="people-directory-link" href="/peopledirectory.action"  class=" aui-nav-imagelink"   title="People">
+            <span>People</span>
+    </a>
+        </li>
+                                    <li id="browseMenu" class="aui-nav aui-style-blocks" role="menu">
+            
+    
+        <a id="browse-menu-link" class="aui-nav-link aui-dropdown2-trigger" href="#" aria-haspopup="true" aria-owns="browse-menu-link-content" title="浏览">
+        <span class="browse">浏览</span><span class="aui-icon-dropdown"></span>
+    </a>
+    <nav id="browse-menu-link-content" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                    <div class="aui-dropdown2-section">
+                <ul  id="browse-menu-link-leading" class="aui-list-truncate section-leading first">
+                                            <li>
+    
+        
+<a  id="space-pages-link" href="/pages/listpages.action?key=Ceshi" class="    "      title="浏览测试部空间的页面" >
+        页面
+</a>
+</li>
+                                            <li>
+    
+        
+<a  id="space-blogposts-link" href="/pages/viewrecentblogposts.action?key=Ceshi" class="    "      title="浏览测试部空间的日志" >
+        日志
+</a>
+</li>
+                                            <li>
+    
+        
+<a  id="space-labels-link" href="/labels/listlabels-heatmap.action?key=Ceshi" class="    "      title="浏览测试部空间的标签" >
+        标签
+</a>
+</li>
+                                            <li>
+    
+        
+<a  id="space-advanced-link" href="/spaces/viewspacesummary.action?key=Ceshi" class="    "      title="浏览测试部空间的附加功能" >
+        空间操作
+</a>
+</li>
+                                    </ul>
+            </div>
+            </nav>
+    
+        </li>
+                    <li>
+            
+    
+            
+<a  id="create-page-button" href="#"  class="aui-button aui-style aui-button-primary aui-nav-imagelink"   title="Create Content">
+            <span>Create</span>
+    </a>
+        </li>
+        </ul>
+</div><div class="aui-header-secondary"><ul class="aui-nav">
+                <li>
+        
+    
+            
+<a  id="doctheme-anchor" href="#"  class=" aui-nav-imagelink"   title="">
+            <span></span>
+    </a>
+    </li>
+        <li>
+<form id="quick-search" class="aui-quicksearch dont-default-focus header-quicksearch" action="/dosearchsite.action" method="get">
+    <fieldset>
+                        <label for="quick-search-query" class="assistive">快速搜索</label>
+        <input id="quick-search-query" class="text app-search search quick-search-query" type="text"
+               accessKey="q" autocomplete="off" name="queryString" title="快速搜索" placeholder="搜索"/>
+        <input id="quick-search-submit" class="quick-search-submit" type="submit" value="搜索"/>
+
+        <div class="aui-dd-parent quick-nav-drop-down"></div>
+    </fieldset>
+    <div class="hidden parameters">
+                    <!-- putMetadata failed to add value for key "quick-nav-enabled" so rendering metadata inline - see server debug log for details -->
+        <meta name="ajs-quick-nav-enabled" content="true">
+                </div>
+</form>
+</li>
+    <li>    
+        <a id="help-menu-link" class="aui-nav-link aui-dropdown2-trigger" href="#" aria-haspopup="true" aria-owns="help-menu-link-content" title="帮助">
+        <span class="aui-icon aui-icon-small aui-iconfont-help">帮助</span><span class="aui-icon-dropdown"></span>
+    </a>
+    <nav id="help-menu-link-content" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                    <div class="aui-dropdown2-section">
+                <ul  id="help-menu-link-leading" class="aui-list-truncate section-leading first">
+                                            <li>
+    
+        
+<a  id="confluence-help-link" href="http://docs.atlassian.com/confluence/docs-51/Getting+Help+And+Support" class="    "      title="访问Confluence文档站点"  target="_blank"
+>
+        在线帮助
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="keyboard-shortcuts-link" href="#" class="    "      title="View available keyboard shortcuts" >
+        Keyboard Shortcuts
+</a>
+</li>
+                                            <li>
+    
+        
+<a  id="feed-builder-link" href="/dashboard/configurerssfeed.action" class="    "      title="创建个性化的 RSS源。" >
+        RSS源构建器
+</a>
+</li>
+                                            <li>
+    
+        
+<a  id="whats-new-menu-link" href="http://docs.atlassian.com/confluence/docs-51/whatsnew/iframe?e=d2FuZ3NlbkBnb21lcGx1cy5jb20%3D&amp;od=false&amp;a=false" class="    "      title="" >
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="gadget-directory-link" href="#" class="   user-item administration-link "      title="浏览小工具" >
+        可用的小工具
+</a>
+</li>
+                                    </ul>
+            </div>
+            </nav>
+    </li>
+    <li>    
+    </li>
+                <li>
+        
+    
+            
+<a  id="notifications-anchor" href="#"  class="mw-anchor read aui-nav-imagelink"   title="">
+            <span></span>
+    </a>
+    </li>
+        <li>                                    
+        <a id="user-menu-link" class="aui-dropdown2-trigger " aria-haspopup="true" aria-owns="user-menu-link-content" data-username="wangsen" href="#" title="王森-技术中心-测试部">
+                    <div class="aui-avatar aui-avatar-small">
+                <div class="aui-avatar-inner">
+                    <img src="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/_/images/icons/profilepics/default.png"/>
+                </div>
+            </div>
+            <span class="aui-icon-dropdown"></span>
+        </a>
+        <nav id="user-menu-link-content" class="aui-dropdown2 aui-style-default">
+                            <div class="aui-dropdown2-section">
+                    <ul  id="user-menu-link-user-preferences"                        class="aui-list-truncate section-user-preferences first">
+                                                    <li>
+    
+        
+<a  id="view-user-history-link" href="/users/viewuserhistory.action" class="   user-item user-history popup-link "      title="" >
+        最近浏览
+</a>
+</li>
+                                            </ul>
+                </div>
+                            <div class="aui-dropdown2-section">
+                    <ul  id="user-menu-link-user-content"                        class="aui-list-truncate section-user-content">
+                                                    <li>
+    
+        
+<a  id="view-user-profile-link" href="/users/viewmyprofile.action" class="   user-item user-profile "      title="" >
+        用户信息
+</a>
+</li>
+                                                    <li>
+    
+        
+<a  id="user-settings-link" href="/users/viewmysettings.action" class="   user-item "      title="" >
+        设置
+</a>
+</li>
+                                                    <li>
+    
+        
+<a  href="/users/viewfollow.action?username=wangsen" class="   follow-link "      title="" >
+        社交
+</a>
+</li>
+                                                    <li>
+    
+        
+<a  id="user-favourites-link" href="/users/viewmyfavourites.action" class="   user-item "      title="" >
+        收藏
+</a>
+</li>
+                                                    <li>
+    
+        
+<a  id="user-watches-link" href="/users/viewnotifications.action" class="   user-item "      title="" >
+        关注
+</a>
+</li>
+                                                    <li>
+    
+        
+<a  id="user-drafts-link" href="/users/viewmydrafts.action" class="   user-item "      title="" >
+        草稿
+</a>
+</li>
+                                                    <li>
+    
+        
+<a  id="upm-requests-link" href="/plugins/servlet/upm/requests?source=header_user" class="    "      title="" >
+        Atlassian Marketplace
+</a>
+</li>
+                                            </ul>
+                </div>
+                            <div class="aui-dropdown2-section">
+                    <ul  id="user-menu-link-user-operations"                        class="aui-list-truncate section-user-operations">
+                                                    <li>
+    
+        
+<a  id="logout-link" href="/logout.action" class="   user-item logout-link "      title="" >
+        注销
+</a>
+</li>
+                                            </ul>
+                </div>
+                    </nav>
+                    </li>
+</ul>
+</div></div><!-- .aui-header-inner--></nav><!-- .aui-header -->
+    <br class="clear">
+</header>
+
+    <div id="splitter">
+    <div id="splitter-sidebar" >
+        
+
+                    
+        
+    
+    
+
+
+
+<div class="plugin_pagetree">
+
+                <div id="pagetreesearch">
+            <form method="POST" class="aui" action="/plugins/pagetreesearch/pagetreesearch.action" name="pagetreesearchform">
+                                    <input type="hidden" name="ancestorId" value="9699336">
+                                <input type="hidden" name="spaceKey" value="Ceshi">
+                <input type="text"  class="text medium-field" size="20" name="queryString">
+                <input type="submit" class="aui-button" value="Search">
+            </form>
+        </div>
+    
+        
+    <ul class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
+        <div class="plugin_pagetree_children">
+        </div>
+    </ul>
+
+    <fieldset class="hidden">
+        <input type="hidden" name="treeId" value="">
+        <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false">
+        <input type="hidden" name="treePageId" value="17762082">
+
+        <input type="hidden" name="noRoot" value="false">
+        <input type="hidden" name="rootPageId" value="9699336">
+
+        <input type="hidden" name="rootPage" value="">
+        <input type="hidden" name="startDepth" value="0">
+        <input type="hidden" name="spaceKey" value="Ceshi" >
+
+        <input type="hidden" name="i18n-pagetree.loading" value="Loading...">
+        <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page.">
+        <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information.">
+        <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fpages%2Fviewpage.action%3FpageId%3D17762082">
+
+                <fieldset class="hidden">
+                                                <input type="hidden" name="ancestorId" value="17761025">
+                                    <input type="hidden" name="ancestorId" value="15436880">
+                                    <input type="hidden" name="ancestorId" value="9699336">
+                                    </fieldset>
+    </fieldset>
+</div>
+
+
+
+            </div>
+    <div id="splitter-content">
+
+                    <script type="text/javascript" src="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/5.1/_/download/resources/com.atlassian.confluence.plugins.doctheme:resources/doc-theme.js"></script>
+    
+                        
+            
+<div id="main"  class="aui-page-panel" >
+    <div id="main-header">
+        
+        
+    <div id="navigation" class="content-navigation view">
+                    <ul class="ajs-menu-bar">
+                            <li class="ajs-button normal">
+
+    
+        
+    
+    <a  id="editPageLink" href="/pages/editpage.action?pageId=17762082"  class="edit full-load"  accessKey="e"  title="编辑">
+                <span><u>E</u>编辑</span>    </a>
+</li>
+                <li class="ajs-button normal">
+
+    
+            
+    
+    <a  id="shareContentLink" href="#"  class="share"   title="通过发送电子邮件给其他人共享此内容">
+                <span>分享</span>    </a>
+</li>
+                        
+        <li class="normal ajs-menu-item">
+        <a id="add-menu-link" class="add hidden ajs-menu-title aui-dropdown2-trigger" href="#" aria-haspopup="true" aria-owns="add-menu" data-container="#navigation"><span><span>添加</span></span></a>         <div id="add-menu" class="aui-dropdown2 aui-style-default">
+                            <ul  id="add-menu-space"                     class="section-space first aui-dropdown2-section">
+                                            <li>
+
+    
+        
+    
+    <a  id="createPageLink" href="/pages/createpage.action?spaceKey=Ceshi&amp;fromPageId=17762082"  class="add-page"  accessKey="p"  title="添加页面">
+                <span>页面</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="createPageLinkTemplate" href="/pages/createpage-choosetemplate.action?spaceKey=Ceshi&amp;newSpaceKey=Ceshi&amp;fromPageId=17762082"  class="add-page-template"  accessKey="p"  title="使用模板添加页面">
+                <span>由模板产生的页面</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="createBlogpostLink" href="/pages/createblogpost.action?spaceKey=Ceshi"  class="add-news"   title="添加日志">
+                <span>日志</span>    </a>
+</li>
+                                </ul>
+                            <ul  id="add-menu-page"                     class="section-page aui-dropdown2-section">
+                                            <li>
+
+    
+        
+    
+    <a  id="add-comment-menu-link" href="/pages/viewpage.action?pageId=17762082&amp;showComments=true&amp;showCommentArea=true#addcomment"  class="add-comment"   title="添加评论">
+                <span>评论</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="add-attachment-link" href="/pages/viewpageattachments.action?pageId=17762082"  class="add-attachment"  accessKey="t"  title="添加一个附件">
+                <span>附件</span>    </a>
+</li>
+                                </ul>
+                    </div>
+    </li>
+                    
+        <li class="normal ajs-menu-item">
+        <a id="action-menu-link" class="action ajs-menu-title aui-dropdown2-trigger" href="#" aria-haspopup="true" aria-owns="action-menu" data-container="#navigation"><span><span>工具</span></span></a>         <div id="action-menu" class="aui-dropdown2 aui-style-default">
+                            <ul  id="action-menu-primary"                     class="section-primary first aui-dropdown2-section">
+                                            <li>
+
+    
+        
+    
+    <a  id="view-attachments-link" href="/pages/viewpageattachments.action?pageId=17762082"  class="action-view-attachments"  accessKey="t"  title="查看附件">
+                <span><u>t</u>附件 (0)</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="action-view-history-link" href="/pages/viewpreviousversions.action?pageId=17762082"  class="action-view-history"   title="">
+                <span>页面历史</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="action-page-permissions-link" href="/pages/viewinfo.action?pageId=17762082"  class="action-page-permissions"   title="编辑限制">
+                <span>限制</span>    </a>
+</li>
+                                </ul>
+                            <ul  id="action-menu-marker"                     class="section-marker aui-dropdown2-section">
+                                            <li>
+
+    
+        
+    
+    <a  id="page-favourite" href="/labels/addfavourite.action?entityId=17762082&amp;atl_token=b60ecc272fd7541200cce0b8d32c37a862f968b4"  class="action-page-favourite"   title="">
+                <span>收藏夹</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="page-watch" href="/pages/addpagenotification.action?pageId=17762082&amp;atl_token=b60ecc272fd7541200cce0b8d32c37a862f968b4"  class="action-page-watching"   title="">
+                <span>关注</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="page-unwatch" href="/pages/removepagenotification.action?pageId=17762082&amp;atl_token=b60ecc272fd7541200cce0b8d32c37a862f968b4"  class="action-page-watching selected ie-page-watching-selected inactive"   title="">
+                <span>停止关注</span>    </a>
+</li>
+                                </ul>
+                            <ul  id="action-menu-secondary"                     class="section-secondary aui-dropdown2-section">
+                                            <li>
+
+    
+        
+    
+    <a  id="view-page-info-link" href="/pages/viewinfo.action?pageId=17762082"  class="action-view-info"   title="">
+                <span>页面信息</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="link-to-page-link" href="/pages/viewinfo.action?pageId=17762082"  class=""   title="链接至本页面">
+                <span>链接到此页面…</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="view-in-hierarchy-link" href="/pages/listpages-dirview.action?key=Ceshi&amp;openId=17762082#selectedPageInHierarchy"  class=""   title="">
+                <span>以层级方式查看</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="action-view-source-link" href="/plugins/viewsource/viewpagesrc.action?pageId=17762082"  class="action-view-source popup-link"   title="">
+                <span>View Source</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="action-export-pdf-link" href="/spaces/flyingpdf/pdfpageexport.action?pageId=17762082"  class=""   title="">
+                <span>Export to PDF</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="action-export-word-link" href="/exportword?pageId=17762082"  class="action-export-word"   title="">
+                <span>导出为Word</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="import-word-doc" href="/pages/worddav/uploadimport.action?pageId=17762082"  class=""   title="">
+                <span>Import Word Document</span>    </a>
+</li>
+                                </ul>
+                            <ul  id="action-menu-modify"                     class="section-modify aui-dropdown2-section">
+                                            <li>
+
+    
+        
+    
+    <a  id="action-copy-page-link" href="/pages/copypage.action?idOfPageToCopy=17762082&amp;spaceKey=Ceshi"  class="action-copy"   title="">
+                <span>复制</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="action-move-page-dialog-link" href="/pages/viewpage.action?pageId=17762082"  class="action-move"   title="">
+                <span>移动</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="action-remove-content-link" href="/pages/removepage.action?pageId=17762082"  class="action-remove"   title="">
+                <span>删除</span>    </a>
+</li>
+                                </ul>
+                    </div>
+    </li>
+            </ul>
+    </div>
+
+        
+                <h1 id="title-heading" class="pagetitle with-breadcrumbs">
+                            <div class="space-logo " data-key="Ceshi" data-name="测试部" data-entity-type="confluence.space">
+            <a><img class="logo global" src="/images/logo/default-space-logo-48.png" alt=""></a>
+        </div>            
+                            <div id="breadcrumb-section">
+                    
+    
+    
+    <ol id="breadcrumbs">
+                    
+                
+        <li class="first" >
+                
+
+                    <span class=""><a href="/display/Ceshi">测试部</a></span>
+                                                <li id="ellipsis" title="显示全部导航项"><span><strong>&#8230;</strong></span></li>
+                                    
+                
+        <li class="hidden-crumb" >
+                
+
+                    <span class=""><a href="/pages/viewpage.action?pageId=9699336">测试部 首页</a></span>
+                                        
+                
+        <li class="hidden-crumb" >
+                
+
+                    <span class=""><a href="/pages/viewpage.action?pageId=15436880">版本发布</a></span>
+                            
+                
+        <li>
+                
+
+                    <span class=""><a href="/pages/viewpage.action?pageId=17761025">发版需求_10月</a></span>
+                </ol>
+
+
+                </div>
+            
+            <span id="title-text" class="with-breadcrumbs">
+                                        <a href="/pages/viewpage.action?pageId=17762082">2016-10-28 发版需求</a>
+                            </span>
+        </h1>
+    </div>
+
+    
+
+    
+    
+    
+    
+    
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+        
+    
+    
+                    
+    
+
+    
+
+
+<div id="content" class="page view">
+    
+
+<div id="action-messages">
+                        </div>
+
+
+
+    
+<script type="text/x-template" title="movePageDialog">
+    <div class="row information">
+        <div class="inner">
+            <div class="element">
+                按照空间和标题指定这个页面的新的父页面和子页面
+            </div>
+        </div>
+    </div>
+        <form class="aui" onsubmit="return false;">
+	        <fieldset>
+	                
+
+    <legend class="assistive"><span>变更父页面至已知页面</span></legend>
+	            <div class="field-group">
+	                <label for="new-space">新空间:</label>
+	                <div class="value new-space-value">
+	                    <input id="new-space-key" name="new-space-key" type="hidden" value="Ceshi">
+	                    	                        <span class="space-input">
+	                            <input id="new-space" name="new-space" value="测试部" class="text long-field">
+	                        </span>
+                            <div class="description hidden">输入空间的名字来查看建议的空间列表。</div>
+	                    	                    <div class="new-space-dropdown aui-dd-parent autocomplete"></div>
+	                </div>
+	            </div>
+	            <div class="field-group">
+	                <label for="new-parent-page">新的父页面:</label>
+	                <div class="value new-parent-page-value">
+	                    <span class="page-input">
+	                        <input id="new-parent-page" name="new-parent-page" value="发版需求_10月" class="text long-field">
+	                    </span>
+                        <div class="description">输入页面标题来查看建议的页面列表。</div>
+	                    <div class="new-parent-page-dropdown aui-dd-parent autocomplete"></div>
+	                </div>
+	            </div>
+	        </fieldset>
+        </form>
+    <div class="location-info">
+        <div class="row">
+            <label>当前位置:</label>
+            <div class="value breadcrumbs-container">
+                <div class="breadcrumbs-line">
+                    <ul id="current-parent-breadcrumbs" class="breadcrumbs">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <label>新位置:</label>
+            <div class="value breadcrumbs-container">
+                <div class="breadcrumbs-line">
+                    <ul id="new-parent-breadcrumbs" class="breadcrumbs">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-template" title="movePageSearchPanel">
+    <div class="row information">
+        <div class="inner">
+            <div class="element">
+                为这个页面及其子页面选择新的父页面
+            </div>
+        </div>
+    </div>
+    <div id="move-page-search-container" class="row">
+	        <form class="aui" onsubmit="return false;">
+	            <fieldset>
+	                    
+
+    <legend class="assistive"><span>搜索父页面</span></legend>
+	                    
+
+    <label  for="move-page-search-query" class="assistive">搜索关键字</label>
+	                <input class="search-query text" id="move-page-search-query">
+	                    
+
+    <label  for="move-page-search-space" class="assistive">在空间中搜索</label>
+	                	                    <select id="move-page-search-space" class="search-space select">
+	                        <option value="conf_all" selected="selected">全部空间</option>
+	                        <option value="Ceshi">测试部</option>
+	                    </select>
+	                	                <input type="button" value="搜索" class="button submit">
+	                	            </fieldset>
+	        </form>
+        <div class="search-results">
+        </div>
+    </div>
+</script>
+<script type="text/x-template" title="searchResultsGrid">
+    <table class="aui">
+        <thead>
+            <tr class="header">
+                <th class="search-result-title">页面标题</th>
+                <th class="search-result-space">空间</th>
+                <th class="search-result-date">更新于</th>
+            </tr>
+        </thead>
+    </table>
+</script>
+<script type="text/x-template" title="searchResultsGridCount">
+    <p class="search-result-count">{0}</p>
+</script>
+<script type="text/x-template" title="searchResultsGridRow">
+    <tr class="search-result">
+        <th class="search-result-title"><a href="{1}" class="content-type-{2}"><span>{0}</span></a></th>
+        <td class="search-result-space"><a class="space" href="/display/{4}/" title="{3}">{3}</a></td>
+        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
+    </tr>
+</script><!-- Start restrictions section -->
+<script type="text/x-template" title="page-permissions-div">
+<div id="page-permissions-div">
+    <div id="page-permissions-editor-form">
+                <div id="page-permissions-error-div" class="aui-message warning shadowed closeable hidden">
+            <p class="title"/>
+            <span class="aui-icon icon-warning"></span>
+            <span class="aui-icon icon-close" tabindex="0" role="button"></span>
+        </div>
+                <div id="page-permissions-type-radios" class="page-permissions-label-rows">
+            <div class="radio">
+                <input id="restrictViewRadio" class="radio" type="radio" checked="checked" name="pagePermissionTypeRadio" value="view"/>
+                <label for="restrictViewRadio">页面浏览限制</label>
+                <input id="restrictEditRadio" class="radio" type="radio" name="pagePermissionTypeRadio" value="edit"/>
+                <label for="restrictEditRadio">页面编辑限制</label>
+            </div>
+        </div>
+        <div id="page-permissions-input" class="page-permissions-label-rows">
+            <div class="page-permissions-label">至:</div>
+            <div id="page-permissions-chooser-box">
+                                    <span id="page-permissions-choose-me" class="aui-button normal">
+                        <a href="#">
+                            <img src="/images/icons/profilepics/default.png" alt="我"/>
+                            我
+                        </a>
+                        <span class="remote-user-name hidden">wangsen</span>
+                    </span>
+                                <span id="page-permissions-choose-user" class="aui-button">
+                    
+
+
+    
+    
+
+
+
+
+
+
+<a id='userpicker-popup-link'  href='#' onClick="var picker = window.open('/spaces/openuserpicker.action?key=Ceshi&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;">
+    				    <img src="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/_/images/icons/user_16.png" height=16 width=16 border=0 align="absmiddle"  title="Choose users" />
+						    人员...
+	        </a>
+
+
+                </span>
+                <span id="page-permissions-choose-group" class="aui-button">
+                    
+
+
+    
+    
+
+ 
+
+
+
+
+<a id='grouppicker-popup-link'  href='#' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=Ceshi&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;">
+    				    <img src="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/_/images/icons/group_16.png" height=16 width=16 border=0 align="absmiddle"  title="Choose groups" />
+						    组...
+	        </a>
+
+
+                </span>
+            </div>
+            <div id="page-permissions-input-box">
+                <input id="page-permissions-names-input" class="autocomplete-user-or-group text" type="text" name="permissionNames"
+                    placeholder="输入用户或组名:"
+                    data-max="10" data-none-message="No matches"
+                    data-target="#page-permissions-names-hidden"
+                    data-dropdown-target="#page-perms-name-dropdown-wrapper" data-resize-to-input="true"
+                    size="30"/>
+                <input
+    type="hidden"
+                            id="page-permissions-names-hidden"           />                <button class="aui-button" id="add-typed-names">限制</button>
+                <div id="page-perms-name-dropdown-wrapper" class="aui-dd-parent autocomplete autocomplete-user-or-group-target"></div>
+            </div>
+        </div>
+    </div>
+    <div id="page-permissions-tables">
+        <div id="page-permissions-table-div">
+                        <table id="page-permissions-table" class="page-permissions-table">
+                <tr id="page-permissions-no-views" class="marker-row">
+                    <td colspan="3" class="page-permissions-marker-cell">
+                            <span class="aui-icon aui-icon-small aui-iconfont-view"></span>
+                        <span>当前页面没有浏览限制</span>
+                    </td>
+                </tr>
+                <tr id="page-permissions-no-edits" class="marker-row">
+                    <td colspan="3" class="page-permissions-marker-cell">
+                            <span class="aui-icon aui-icon-small edit-icon"></span>
+                        <span>当前页面没有编辑限制</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="page-inherited-permissions-table-div" class="hidden">
+            <span id="page-inherited-permissions-table-desc">
+                <a class="icon twisty-closed">显示/隐藏</a>
+                <a id="toggle-inherited-permissions" title="点击查看继承权限">此页面继承了父级页面权限，只有对父级页面拥有查看权限的用户才可以查看此页面。</a>
+            </span>
+            <div id="page-inherited-permissions-tables" class="hidden page-inheritance-togglable"></div>
+        </div>
+    </div>
+</div>
+</script>
+
+<!-- End restrictions section -->
+
+        
+    
+    
+        <fieldset class="hidden parameters">
+            <input type="hidden" title="parentPageId" value="17761025">
+        </fieldset>
+
+        
+                            
+    
+
+                    
+
+        
+        <a href="#page-metadata-end" class="assistive">转至元数据结尾</a>
+<div id="page-metadata-start" class="assistive"></div>
+
+    <div class="page-metadata">
+        <ul>
+                            <li class="page-metadata-item noprint">
+
+    
+            
+    
+    <a  id="content-metadata-page-restrictions" href="#"  class="page-metadata-icon page-restrictions hidden"   title="此页面应用了权限限制，点击小锁图标查看或编辑限制。">
+                <span>应用页面限制</span>    </a>
+</li>
+                        <li class="page-metadata-modification-info">
+                                    被<a href="    /display/~zhujianpeng
+"
+                          class="url fn confluence-userlink" data-username="zhujianpeng"
+                   >朱建朋-技术中心-测试部</a>添加，被<a href="    /display/~songrongbin
+"
+                          class="url fn confluence-userlink" data-username="songrongbin"
+                   >宋荣彬-技术中心-服务研发部</a>最后更新于十月 28, 2016
+                                                                <span class="noprint">&nbsp;(<a id="view-change-link" href="/pages/diffpages.action?pageId=17762082&originalId=19267876">查看更改</a>)</span>
+                                                </li>
+                    </ul>
+                </div>
+
+
+<a href="#page-metadata-start" class="assistive">转至元数据起始</a>
+<div id="page-metadata-end" class="assistive"></div>
+        
+        <fieldset class="hidden parameters">
+                        <input type="hidden" title="browsePageTreeMode" value="view">
+        </fieldset>
+
+        <div class="wiki-content">
+                           <p> </p><p><strong>@开发同学，在填写发版需求的时候请完整填写前5列的内容，谢谢。</strong></p><p><strong>今日发版人员：朱建朋<br /></strong></p><p> </p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">序号</th><th class="confluenceTh">模块/版本号</th><th class="confluenceTh">功能说明</th><th class="confluenceTh">提测人</th><th colspan="1" class="confluenceTh">release版打包时间</th><th colspan="1" class="confluenceTh">发版人</th><th colspan="1" class="confluenceTh">发版时间</th><th colspan="1" class="confluenceTh">发版状态</th><th colspan="1" class="confluenceTh">是否一次成功</th><th colspan="1" class="confluenceTh">失败原因</th><th colspan="1" class="confluenceTh">失败后处理措施</th><th colspan="1" class="confluenceTh">发版失败持续时间</th></tr><tr><td colspan="1" class="confluenceTd">1</td><td colspan="1" class="confluenceTd">venus-api-servlet/2.174</td><td colspan="1" class="confluenceTd">bug修复</td><td colspan="1" class="confluenceTd">宋荣彬</td><td colspan="1" class="confluenceTd">2016-10-28 10:45</td><td colspan="1" class="confluenceTd">朱建朋</td><td colspan="1" class="confluenceTd">11：30</td><td colspan="1" class="confluenceTd">发版完毕</td><td colspan="1" class="confluenceTd">是</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd">2</td><td colspan="1" class="confluenceTd">venus-web<pre>1.57</pre></td><td colspan="1" class="confluenceTd">商家送券更新【紧急】</td><td colspan="1" class="confluenceTd">张海宁</td><td colspan="1" class="confluenceTd">2016-10-28 11:25</td><td colspan="1" class="confluenceTd">朱建朋</td><td colspan="1" class="confluenceTd">11：30</td><td colspan="1" class="confluenceTd">发版完毕</td><td colspan="1" class="confluenceTd">是</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd">3</td><td colspan="1" class="confluenceTd">venus-settlement-web/<pre class="console-output">1.47</pre></td><td colspan="1" class="confluenceTd">调整job自动执行时间参数</td><td colspan="1" class="confluenceTd">王振鹏</td><td colspan="1" class="confluenceTd">2016-10-28 12:04:28</td><td colspan="1" class="confluenceTd">朱建朋</td><td colspan="1" class="confluenceTd">15:00</td><td colspan="1" class="confluenceTd">发版完毕</td><td colspan="1" class="confluenceTd">是</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd">4</td><td colspan="1" class="confluenceTd"><p>venus-trade/<span style="background-color: transparent;">4.17.9</span></p></td><td colspan="1" class="confluenceTd">bug修复</td><td colspan="1" class="confluenceTd">宋荣彬</td><td colspan="1" class="confluenceTd"><p><span class="page_generated">2016-10-28 15:21:33</span></p></td><td colspan="1" class="confluenceTd">朱建朋</td><td colspan="1" class="confluenceTd">15:00</td><td colspan="1" class="confluenceTd">发版完毕</td><td colspan="1" class="confluenceTd">是</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd">5</td><td colspan="1" class="confluenceTd">venus-shop/1.50.12</td><td colspan="1" class="confluenceTd">打开品类申请入口</td><td colspan="1" class="confluenceTd">李希龙</td><td colspan="1" class="confluenceTd"><span>2016-10-28 14:24:00</span></td><td colspan="1" class="confluenceTd">朱建朋</td><td colspan="1" class="confluenceTd">15:00</td><td colspan="1" class="confluenceTd">发版完毕</td><td colspan="1" class="confluenceTd">是</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd">6</td><td colspan="1" class="confluenceTd">ponyta/2.88</td><td colspan="1" class="confluenceTd">打开品类申请入口</td><td colspan="1" class="confluenceTd">李希龙</td><td colspan="1" class="confluenceTd">2016-10-28 14:24:00</td><td colspan="1" class="confluenceTd">朱建朋</td><td colspan="1" class="confluenceTd">15:00</td><td colspan="1" class="confluenceTd">发版完毕</td><td colspan="1" class="confluenceTd">是</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd">7</td><td colspan="1" class="confluenceTd">venus-promotion/<pre class="console-output">1.33.9</pre></td><td colspan="1" class="confluenceTd">优惠劵bug修复<pre> </pre></td><td colspan="1" class="confluenceTd">董浩</td><td colspan="1" class="confluenceTd"><span>2016-10-28 15:08:00</span></td><td colspan="1" class="confluenceTd">朱建朋</td><td colspan="1" class="confluenceTd">16:00</td><td colspan="1" class="confluenceTd">发版完毕</td><td colspan="1" class="confluenceTd">是</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd">8</td><td colspan="1" class="confluenceTd">venus-api-servlet/2.177</td><td colspan="1" class="confluenceTd">bug修复</td><td colspan="1" class="confluenceTd">宋荣彬</td><td colspan="1" class="confluenceTd">2016-10-28 15:19</td><td colspan="1" class="confluenceTd">朱建朋</td><td colspan="1" class="confluenceTd">16:00</td><td colspan="1" class="confluenceTd">发版完毕</td><td colspan="1" class="confluenceTd">是</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd">9</td><td colspan="1" class="confluenceTd"><pre class="console-output"><span>ponyta/</span>2.89</pre></td><td colspan="1" class="confluenceTd"><span>优惠劵bug修复</span></td><td colspan="1" class="confluenceTd">董浩</td><td colspan="1" class="confluenceTd"><span>2016-10-28 15:26:00</span></td><td colspan="1" class="confluenceTd">朱建朋</td><td colspan="1" class="confluenceTd">16:00</td><td colspan="1" class="confluenceTd">发版完毕</td><td colspan="1" class="confluenceTd">是</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd">10</td><td colspan="1" class="confluenceTd"><pre class="console-output">rapidash/4.58</pre></td><td colspan="1" class="confluenceTd">修改团购后台的样式</td><td colspan="1" class="confluenceTd">张志</td><td colspan="1" class="confluenceTd"><span>2016-10-28 15:30:00</span></td><td colspan="1" class="confluenceTd">朱建朋</td><td colspan="1" class="confluenceTd">16:00</td><td colspan="1" class="confluenceTd">发版完毕</td><td colspan="1" class="confluenceTd">是</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd">11</td><td colspan="1" class="confluenceTd"><p>venus-trade/<span>4.17.10</span></p></td><td colspan="1" class="confluenceTd">增加日志</td><td colspan="1" class="confluenceTd">宋荣彬</td><td colspan="1" class="confluenceTd"><p><span class="page_generated">2016-10-28 18:00:33</span></p><div><span class="page_generated"><br /></span></div></td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td></tr></tbody></table></div>
+    
+        </div>
+
+        <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="http://wiki.intra.gomeplus.com/pages/viewpage.action?pageId=17762082"
+    dc:identifier="http://wiki.intra.gomeplus.com/pages/viewpage.action?pageId=17762082"
+    dc:title="2016-10-28 发版需求"
+    trackback:ping="http://wiki.intra.gomeplus.com/rpc/trackback/17762082"/>
+</rdf:RDF>
+-->
+
+            
+    
+
+
+
+<div id="labels-section" class="pageSection group">
+    <div class="labels-section-content content-column" entityid="17762082" entitytype="page">
+	<div class="labels-content">
+		
+    <ul class="label-list label-list-right  has-pen">
+            <li class="no-labels-message">
+            无标签
+        </li>
+                <li class="labels-edit-container">
+            <a href="#" class="show-labels-editor editor-icon" title="编辑标签">
+                <span class="icon icon-edit">编辑标签</span>
+            </a>
+        </li>
+        </ul>
+
+    </div>
+</div></div>
+
+            
+            
+
+
+
+
+            
+    
+
+
+
+
+
+
+
+
+                    
+    
+<div id="comments-section" class="pageSection group">
+    
+    
+    
+    
+            <div class="bottom-comment-panels comment-panels">
+                                    
+    
+
+                    
+    
+
+
+    
+
+<div class="quick-comment-container comment add"><p class="comment-user-logo"><a class="userLogoLink" data-username="wangsen" href="/users/editmyprofilepicture.action" title="添加头像"><img class="userLogo logo defaultLogo" src="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.8/_/images/icons/profilepics/add_profile_pic.png" alt="用户图标: 添加头像"></a></p><div class="quick-comment-vertical-spacer"></div><div class="quick-comment-body"><div class="quick-comment-loading-container" style="display:none;"><p class="quick-comment-loading-message">正加载编辑器</p></div><div id="editor-messages"></div><div id="all-messages"></div><form style="display:block;" class="quick-comment-form aui" method="post" name="inlinecommentform" action="/pages/doaddcomment.action?pageId=17762082" ><div title="添加评论" class="quick-comment-prompt"><span>写评论…</span></div></form></div></div>
+
+    
+            </div>
+    
+                        <div id="comments-actions" class="aui-toolbar noprint">
+                <p class="toolbar-group">
+                    <span class="toolbar-item"><a href="/pages/viewpage.action?pageId=17762082&showComments=true&amp;showCommentArea=true#addcomment" id="add-comment-rte" accesskey="m" class="toolbar-trigger full-load">添加评论</a></span>
+                </p>
+            </div>
+            </div>
+
+
+            
+</div>
+
+
+    
+
+
+
+
+    
+    
+
+    
+    
+    
+
+
+
+
+
+
+
+    <br class="clear">
+</div>
+  
+    </div>
+</div>
+
+
+        
+            <div id="footer">
+
+    <section class="footer-body">
+
+                        
+    
+
+    <ul id="poweredby">
+        <li class="noprint">Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link">Atlassian Confluence</a> <span id='footer-build-information'>5.1</span>, <a href="http://www.atlassian.com/software/confluence/overview/team-collaboration-software?utm_source=confluence-footer" class="hover-footer-link">团队协作软件</a></li>
+        <li class="print-only">由团队协作软件 Atlassian Confluence 5.1打印。</li>
+        <li class="noprint"><a href="http://jira.atlassian.com/secure/BrowseProject.jspa?id=10470" class="hover-footer-link">报告缺陷</a></li>
+        <li class="noprint"><a href="http://www.atlassian.com/about/connected.jsp?s_kwcid=Confluence-stayintouch" class="hover-footer-link">Atlassian 新闻</a></li>
+    </ul>
+
+    
+
+            
+    
+    </section>
+
+</div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+#生产
+#tfs
+
+tfs_nsip=bj02-ops-apitfs01.pro.gomeplus.com:8100
+tfs_uniqueServerList=bj02-ops-apitfs01.pro.gomeplus.com:8100
+
+imageutil_urlPrefix=https://i0.meixincdn.com
+imageutil_candidateSubdomains=i0,i1,i2,i3,i4,i5,i6,i7,i8,i9

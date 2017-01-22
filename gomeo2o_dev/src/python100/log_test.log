@@ -1,0 +1,4 @@
+2016-11-15 19:16:28 - my_logger - test_log.py - [line:60] - INFO - info message
+2016-11-15 19:16:28 - my_logger - test_log.py - [line:61] - WARNING - warning message
+2016-11-15 19:16:28 - my_logger - test_log.py - [line:62] - ERROR - error message
+2016-11-15 19:16:28 - my_logger - test_log.py - [line:63] - CRITICAL - critical message

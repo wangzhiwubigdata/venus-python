@@ -1,0 +1,127 @@
+# vim: fileencoding=utf-8 ts=4 sw=4 sts=4 et
+
+from base import TesterBase, leaders
+import sys
+import urllib
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
+
+class OrderTester(TesterBase):
+    def get_home_redpack_list(self):
+        o = self.comm_get('api/cheap/get_home_redpack_list.json?')
+        return self.ret(o, lambda: len(o['data'][0]['shopName']) > 0)
+
+    def get_more_redpacket_list(self):
+        o = self.comm_get('api/cheap/get_more_redpacket_list.json?')
+        return self.ret(o, lambda: True)
+
+    def new_preferential(self):
+        o = self.comm_get('api/carefulChoose/new_preferential.json?')
+        return self.ret(o, lambda: o['data'][0]['vShopId'] > 0)
+
+    def u_query_order_count(self):
+        o = self.user_get('api/user/query_order_count.json?')
+        return self.ret(o, lambda: o['data']['pendPayment'] >= 0)
+
+    def u_get_shopcart_list(self):
+        o = self.user_get('api/cart/get_shopcart_list.json?')
+        return self.ret(o, lambda: True)
+
+    def u_nocomment_product_list(self):
+        o = self.user_get('api/order/nocomment_product_list.json?')
+        return self.ret(o, lambda: True)
+
+    def u_comment_product_list(self):
+        o = self.user_get('api/order/comment_product_list.json?')
+        return self.ret(o, lambda: True)
+
+    def u_order_list(self):
+        o = self.user_get('api/order/order_list.json?orderStatus=1&hasComment=1&shopType=1&referenceId=1&')
+        return self.ret(o, lambda: True)
+
+    def u_get_after_sale_list(self):
+        o = self.user_get('api/manage/order/get_after_sale_list.json?shopType=1&referenceId=1&')
+        return self.ret(o, lambda: True)
+
+    def u_check_logistics(self):
+        o = self.user_get('api/order/check_logistics.json?orderId=6865&shopType=1&type=1&')
+        return self.ret(o, lambda: True)
+
+    def u_account_detail_list(self):
+        o = self.user_get('api/account/account_detail_list.json?')
+        return self.ret(o, lambda: True)
+
+    def u_account_detail(self):
+        o = self.user_get('api/account/account_detail.json?detailId=1021&type=1&')
+        return self.ret(o, lambda: True)
+
+    def u_nocomment_product_detail(self):
+        o = self.user_get('api/order/nocomment_product_detail.json?orderItemId=7687&')
+        return self.ret(o, lambda: True)
+
+    def u_order_detail(self):
+        o = self.user_get('api/order/order_detail.json?orderId=6865&shopType=1&')
+        return self.ret(o, lambda: True)
+
+    def u_get_logistic_list(self):
+        o = self.user_get('api/order/get_logistic_list.json?logName=1&')
+        return self.ret(o, lambda: True)
+
+    def u_query_vshop_order_count(self):
+        o = self.user_get('api/user/query_vshop_order_count.json?vshopId=1&')
+        return self.ret(o, lambda: True)
+
+    def u_redpacket_list(self):
+        o = self.user_get('api/account/redpacket_list.json?state=1&')
+        return self.ret(o, lambda: True)
+
+    def u_score_info(self):
+        o = self.user_get('api/account/score_info.json?')
+        return self.ret(o, lambda: True)
+
+    def u_score_list(self):
+        o = self.user_get('api/account/score_list.json?scoreType=0&')
+        return self.ret(o, lambda: True)
+
+    def u_score_explain(self):
+        o = self.user_get('api/account/score_explain.json?')
+        return self.ret(o, lambda: True)
+
+    def u_add_shopcart(self):
+        o = self.user_get('api/cart/add_shopcart.json?shopId=411&kId=1&skuId=1323&proNum=1&')
+        return self.ret(o, lambda: True)
+
+    def u_del_shopcart_product(self):
+        o = self.user_get('api/cart/del_shopcart_product.json?deleteIds=' + urllib.quote("1323@1#411") + '&')
+        return self.ret(o, lambda: True)
+
+
+miaomiao =     [(u"苗苗",   "18210723398"),]
+tangfeng =     [(u"唐峰",   "17090369837"),]
+fengxin =     [(u"冯鑫",   "18610905809"),]
+
+order_cases = [
+    ('get_home_redpack_list',    u'21_首页红包', leaders + miaomiao),
+    ('get_more_redpacket_list',  u'24_更多抢红包', leaders + miaomiao),
+    ('new_preferential',         u'3_最新优惠', leaders + miaomiao),
+    ('u_query_order_count',      u'608_获取用户各订单状态下的订单数量', leaders + miaomiao),
+    ('u_get_shopcart_list',      u'*85_购物车列表', leaders + tangfeng),
+    ('u_nocomment_product_list', u'*163_待评价商品列表', leaders + tangfeng),
+    ('u_comment_product_list',   u'*164_已评价商品列表', leaders + tangfeng),
+    ('u_order_list',             u'*151_我的订单列表', leaders + tangfeng),
+    ('u_get_after_sale_list',    u'*210_退款/退货/换货单列表', leaders + tangfeng),
+    ('u_check_logistics', u'*156_查看物流', leaders + tangfeng),
+    ('u_account_detail_list', u'*167_查看收支明细列表', leaders + tangfeng),
+    ('u_account_detail', u'*168_查看收支明细详情', leaders + tangfeng),
+    ('u_nocomment_product_detail', u'*313_待评价商品详情', leaders + tangfeng),
+    # ('u_order_detail', u'*158_订单详情', leaders + tangfeng),
+    ('u_get_logistic_list', u'*314_获取物流公司列表', leaders + tangfeng),
+    ('u_query_vshop_order_count', u'*627_获取美店用户各订单状态下的订单数量', leaders + tangfeng),
+    ('u_redpacket_list', u'*173_我的红包列表', leaders + tangfeng),
+    ('u_score_info', u'*175_我的积分信息', leaders + tangfeng),
+    ('u_score_list', u'*176_我的积分列表', leaders + tangfeng),
+    ('u_score_explain', u'*177_我的积分说明', leaders + tangfeng),
+    ('u_add_shopcart', u'*87_加入购物车', leaders + tangfeng),
+    ('u_del_shopcart_product', u'*89_删除购物车', leaders + tangfeng),
+]

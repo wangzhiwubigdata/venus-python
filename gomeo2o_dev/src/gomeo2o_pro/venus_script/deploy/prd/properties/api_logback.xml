@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- For assistance related to logback-translator or configuration  -->
+<!-- files in general, please contact the logback user mailing list -->
+<!-- at http://www.qos.ch/mailman/listinfo/logback-user             -->
+<!--                                                                -->
+<!-- For professional support please see                            -->
+<!--    http://www.qos.ch/shop/products/professionalSupport         -->
+<!--                                                                -->
+<configuration>
+  <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+    <Target>System.out</Target>
+    <encoder>
+      <pattern>[%X{logSessionId}] [%date] [%-5p] [%thread] [%logger{10}] [%file:%line] %msg%n</pattern>
+      <charset>UTF-8</charset>
+    </encoder>
+  </appender>
+  <appender name="A" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <!--See also http://logback.qos.ch/manual/appenders.html#RollingFileAppender-->
+    <File>/gomeo2o/logs/gomeo2o-web-frontend/frontend-logback.log</File>
+    <encoder>
+      <pattern>[%X{logSessionId}] [%date] [%-5p] [%thread] [%logger{10}] [%file:%line] %msg%n</pattern>
+      <charset>UTF-8</charset>
+    </encoder>
+    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+      <level>ALL</level>
+    </filter>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        <!-- rollover daily -->
+        <fileNamePattern>/gomeo2o/logs/gomeo2o-web-frontend/frontend-logback-%d{yyyy-MM-dd}.log</fileNamePattern>
+        <charset>UTF-8</charset>
+        <maxHistory>15</maxHistory>
+    </rollingPolicy>
+  </appender>
+  <appender name="E" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <!--for further documentation-->
+    <File>/gomeo2o/logs/gomeo2o-web-frontend/error-logback.log</File>
+    <encoder>
+      <pattern>[%X{logSessionId}] [%date] [%-5p] [%thread] [%logger{10}] [%file:%line] %msg%n</pattern>
+      <charset>UTF-8</charset>
+    </encoder>
+    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+      <level>ERROR</level>
+    </filter>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        <!-- rollover daily -->
+        <fileNamePattern>/gomeo2o/logs/gomeo2o-web-frontend/error-logback-%d{yyyy-MM-dd}.log</fileNamePattern>
+        <charset>UTF-8</charset>
+        <maxHistory>15</maxHistory>
+    </rollingPolicy>
+  </appender>
+  
+  <!-- 过滤心跳日志 -->
+  <logger name="org.apache.zookeeper" level="info" />
+    
+  <root level="debug">
+    <appender-ref ref="stdout"/>
+    <appender-ref ref="A"/>
+    <appender-ref ref="E"/>
+  </root>
+</configuration>

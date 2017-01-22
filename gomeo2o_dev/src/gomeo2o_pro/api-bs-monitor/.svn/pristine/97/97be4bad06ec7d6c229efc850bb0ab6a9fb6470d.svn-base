@@ -1,0 +1,42 @@
+# vim: fileencoding=utf-8 ts=4 sw=4 sts=4 et
+
+from base import TesterBase, leaders
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
+
+class ProductTester(TesterBase):
+    def shop_list(self):
+        o = self.comm_get('homepageshop/shop_list.json?sortType=1&order=1&longitude=1&latitude=1&')
+        return self.ret(o, lambda: o['data']['list'][0]['vshopId'] > -2)
+
+    def get_product_detail(self):
+        o = self.comm_get('product/get_product_detail.json?shopId={shopid}&proId={proid}&locId=1&',
+                          shopid=self.cfg['shopId'], proid=self.cfg['proId'])
+        return self.ret(o, lambda: o['data']['id'] > 0)
+
+    def around_shop_list(self):
+        o = self.comm_get('around/around_shop_list.json?longitude=116.461&latitude=39.9581&sortType=3&order=1&')
+        return self.ret(o, lambda: True )
+
+    def special_market(self):
+        o = self.comm_get('around/special_market.json?type=1&')
+        return self.ret(o, lambda: o['data'][0]['marketId'] > 0)
+
+    def careful_choose_list(self):
+        o = self.comm_get('carefulChoose/careful_choose_list.json?')
+        return self.ret(o, lambda: o['data'][0]['productId'] > 0)
+
+
+yangjun =      [(u"杨军",   "15718820398"),]
+zhaochenyu =   [(u"赵宸宇", "13146609395"),]
+shangpengfei = [(u"上鹏飞", "18729903831"),]
+
+product_cases = [
+    ('shop_list',            u'19_首页店铺列表', leaders + yangjun),
+    ('around_shop_list',     u'17_商圈店铺列表', leaders),
+    ('special_market',       u'15_特色市场', leaders + zhaochenyu),
+    ('get_product_detail',   u'29_商品的详细信息', leaders),
+    ('careful_choose_list',  u'5_精选列表', leaders + shangpengfei),
+]
