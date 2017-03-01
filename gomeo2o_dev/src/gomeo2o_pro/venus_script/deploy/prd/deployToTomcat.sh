@@ -35,7 +35,7 @@ function stopService()
 	${TOMCAT_PATH}/bin/catalina.sh stop
 	sleep 3
 	#有可能一台机器上不上多个tomcat，查询进程号用ps -ef|grep ${TOMCAT_PATH}/ 比较合适
-	P_ID=`ps -ef | grep -w "${TOMCAT_PATH}/" | grep -v "grep" | awk '{print $2}'`
+	P_ID=`ps -ef | grep "${TOMCAT_PATH}/" | grep -v "grep" | awk '{print $2}'`
 	if [ "$P_ID" == "" ]; then
 		echo "stop tomcat finished!"
 	else
@@ -60,8 +60,16 @@ function deploy()
 	mkdir -p ${TMP}/${SERVICE_NAME}
 	cd ${TMP}/${SERVICE_NAME}
 	
-	#下载war包
-	wget ${SERVICE_BASE_URL}/${PROJECT_NAME}/${PROJECT_NAME}-${PROJECT_VERSION}.war
+	#下载war包  venus-csh-web需要进行特殊处理
+	#wget ${SERVICE_BASE_URL}/${PROJECT_NAME}/${PROJECT_NAME}-${PROJECT_VERSION}.war
+        
+        if [ "venus-csh-web" == ${PROJECT_NAME} ]
+        then
+            wget ${SERVICE_BASE_URL}/${PROJECT_NAME}/${ENV}_${PROJECT_NAME}-${PROJECT_VERSION}.war
+            mv ${ENV}_${PROJECT_NAME}-${PROJECT_VERSION}.war  ${PROJECT_NAME}-${PROJECT_VERSION}.war
+        else
+            wget ${SERVICE_BASE_URL}/${PROJECT_NAME}/${PROJECT_NAME}-${PROJECT_VERSION}.war
+        fi
 	
 	#解压war包
 	jar xvf ${PROJECT_NAME}*.war
@@ -76,7 +84,7 @@ function deploy()
 	fi
     
 	#【特殊替换】
-    if [ "${PROJECT_NAME}" == "venus-count-web" ]
+        if [ "${PROJECT_NAME}" == "venus-count-web" ]
 	then
 		mv -f ${TMP}/quartz.properties ${TMP}/${SERVICE_NAME}/WEB-INF/classes/quartz.properties
 	fi
@@ -86,7 +94,11 @@ function deploy()
 		mv -f ${TMP}/session.properties ${TMP}/${SERVICE_NAME}/WEB-INF/classes/session.properties
 		mv -f ${TMP}/web.xml ${TMP}/${SERVICE_NAME}/WEB-INF/web.xml
 	fi
-	
+	if [ "${PROJECT_NAME}" == "venus-settlement-web" ]
+	then
+		mv -f ${TMP}/quartz.properties ${TMP}/${SERVICE_NAME}/WEB-INF/classes/quartz.properties
+	fi
+
 	jar cvf ${SERVICE_NAME}.war ./*
 	mv ${SERVICE_NAME}.war ${TOMCAT_PATH}/webapps
 	
@@ -107,7 +119,20 @@ function main()
 	elif [ "${PROJECT_NAME}" == "venus-count-web" ]
 	then
 		SERVICE_NAME="count"
-	fi
+	elif [ "${PROJECT_NAME}" == "venus-feed-web" ]
+        then
+                SERVICE_NAME="feed"
+	elif [ "${PROJECT_NAME}" == "venus-pay-web" ]
+        then
+                SERVICE_NAME="payapi"
+        elif [ "${PROJECT_NAME}" == "mars-o2mitem-pre" ]
+        then
+                SERVICE_NAME="o2m-item"
+        elif [ "${PROJECT_NAME}" == "mars-o2mtrade-pre" ]
+        then
+                SERVICE_NAME="o2m-trade"
+        fi
+	
 	
 	check_service_verison
 	stopService

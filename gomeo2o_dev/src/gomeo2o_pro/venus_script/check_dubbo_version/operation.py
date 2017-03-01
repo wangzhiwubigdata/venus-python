@@ -10,6 +10,7 @@ import logging
 import os
 import re
 import sys
+
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
@@ -47,7 +48,11 @@ class ZkOperate:
                 dubbo_urls[index].query_dict = query_dict
             # 存入redis
             for dubbo in dubbo_urls:
-                app_detail = 'application:' + dubbo.query_dict["application"] + ',flag:old'
+                app_detail = ''
+                try:
+                    app_detail = 'application:' + dubbo.query_dict.get('application') + ',flag:old'
+                except Exception:
+                    print dubbo.query_dict
                 if not dubbo.query_dict.has_key('version'):
                     print 'dubbo:' + interface + '：这个接口没带版本号'
                     continue
@@ -85,6 +90,14 @@ class FileOperate:
                         application = 'admin'
                     if 'venus-web' == application:
                         application = 'xpop'
+                    if 'mars-o2mitem-pre' == application:
+                        application = 'venus-origin-servlet'
+                    if 'mars-o2mtrade-pre' == application:
+                        application = 'venus-origin-servlet'
+                    if "venus-user" == application:
+                        application = 'venus_user'
+                    if "venus-audit" == application:
+                        application = 'venus-audit-web'
 
                 interface_dict = self.dubbo_service_from_jar('reference', xml_file)
                 for key in interface_dict.keys():
@@ -140,8 +153,16 @@ class RedisOperate:
         for consumer in consumers:
             if consumer.find('com.gome.io.facet') != -1:
                 continue
+            if consumer.find('gome.stat.facade') != -1:
+                continue
             if len(self.redis_client.smembers(consumer.replace("consumers", "providers"))) == 0:
-                print consumer, "【没有提供者】", '--->:', self.redis_client.smembers(consumer)
+                apps = [x for x in self.redis_client.smembers(consumer) if x.find('consumer-gome') == -1]
+                if len(apps) > 0:
+                    consumer = consumer.split(':')[1] + ':' + consumer.split(':')[3]
+                    print consumer, "【没有提供者】"
+                    for app in apps:
+                        print '\t', '-->', app
+                    print ""
 
     # 删掉老版本服务
     def delall_oldapp(self):

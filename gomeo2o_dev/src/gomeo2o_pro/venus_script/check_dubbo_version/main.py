@@ -14,7 +14,7 @@ if __name__ == "__main__":
     fileOperate = FileOperate(redis)
 
     print '-----1.下载解压-----'
-    # planlist.PlanList().get_plan_dict()
+    planlist.PlanList().get_plan_dict()
 
     print '-----2.清空redis---------'
     redisOperate.del_dubbo_keys()
@@ -34,6 +34,6 @@ if __name__ == "__main__":
     print '-----6.结束灰度后检查没有提供者-----------'
     redisOperate.del_old_service()
     redisOperate.chcek_consumers()
-    print '-----7.介绍-------------'
+    print '-----7.结束-------------'
 
     zk.stop()

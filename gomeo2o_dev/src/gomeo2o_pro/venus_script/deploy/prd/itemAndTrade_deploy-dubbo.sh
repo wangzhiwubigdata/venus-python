@@ -9,7 +9,8 @@ export PATH=$JAVA_HOME/bin:$PATH
 
 SERVICE_BASE_PATH=/gomeo2o
 SERVICE_NAME=${1}
-SERVICE_BASE_URL=http://10.125.201.33:8181
+#SERVICE_BASE_URL=http://10.125.201.33:8181
+SERVICE_BASE_URL=http://10.125.136.44
 VERSION=${1}-${2}.tar.gz
 
 SCRIPT_PATH=/gomeo2o/script
@@ -47,8 +48,9 @@ function deploy(){
 	cd ../etc
 	#为服务添加配置文件，配置文件分环境各不相同
 	mv -f ${SERVICE_BASE_PATH}/tmp/${ENV}.properties app.properties
-	#sed -i 's/Dspring.profiles.active=default/Dspring.profiles.active=cluster/g' wrapper.conf
 	sed -i 's/Dspring.profiles.active=default/Dspring.profiles.active=cluster/g' wrapper.conf
+	sed -i 's/wrapper.java.initmemory=256M/wrapper.java.initmemory=4096M/g' wrapper.conf
+	sed -i 's/wrapper.java.maxmemory=256M/wrapper.java.maxmemory=4096M/g' wrapper.conf
 }
 
 
