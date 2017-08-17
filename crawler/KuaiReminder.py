@@ -4,7 +4,7 @@ import easygui
 import requests
 import time
 
-url = 'http://yfcp807.com/tools/ssc_ajax.ashx?A=GetLotteryOpen&S=yfvip&U=wchy2827873682'
+url = 'http://yfcp807.com/tools/ssc_ajax.ashx?A=GetLotteryOpen&S=yfvip&U=xxxx'
 
 
 header = {
@@ -20,7 +20,7 @@ header = {
 postdata = {
     'A': 'GetLotteryOpen',
     'S': 'yfvip',
-    'U':'wchy2827873682',
+    'U':'xxxx',
     'Action' : 'GetLotteryOpen',
     'LotteryCode': 1407,
     'IssueNo' : 0,
