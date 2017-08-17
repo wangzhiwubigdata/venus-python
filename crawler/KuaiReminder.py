@@ -49,7 +49,6 @@ def get_data():
 
         addslist.append(dx)
         dxlist.append(ds)
-    print '接口返回数字个数为：' + str(len(addslist,))
     print '最近6次的原值为： ' + str(arrayList)
     return addslist,dxlist,arrayList
 
