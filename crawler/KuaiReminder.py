@@ -1,6 +1,8 @@
 # encoding: utf-8
 #!/usr/bin/python2.7
 import json
+from itertools import groupby
+
 import easygui
 import requests
 import time
@@ -47,9 +49,35 @@ def get_data():
 
         addslist.append(dx)
         dxlist.append(ds)
-
-    print '最近6次的值为： ' + str(arrayList)
+    print '接口返回数字个数为：' + str(len(addslist,))
+    print '最近6次的原值为： ' + str(arrayList)
     return addslist,dxlist,arrayList
+
+
+def get_max_length(addslist,dxlist,originlist):
+    #print max(len(list(g)) for k, g in groupby(list) if k == 1)
+    list = addslist
+    result = {}
+    tmp = None
+    for i in list:
+        if not result.has_key(i):
+            # 新出现的值为1
+            result[i] = {'tmpcount': 1, 'maxcount': 1}
+        else:
+            if i == tmp:
+                # 同上一次相同,tmpcount数字加一,同时更新maxcount
+                result[tmp]['tmpcount'] = result[tmp]['tmpcount'] + 1
+                if result[tmp]['maxcount'] < result[tmp]['tmpcount']:
+                    result[tmp]['maxcount'] = result[tmp]['tmpcount']
+            else:
+                # 如果不同，上次数字的tmpcount归零，这次的数字的tmpcount归一
+                result[i]['tmpcount'] = 1
+                result[tmp]['tmpcount'] = 0
+        tmp = i
+
+    for j, k in result.items():
+        print '数字' + str(j) + '出现的最大连续次数为' + str(k['maxcount'])
+
 
 
 if __name__ == '__main__':
@@ -67,6 +95,15 @@ if __name__ == '__main__':
         if len(list(set(danshuanglist))) == 1:
             easygui.msgbox(str(originlist), u'注意!')
             #easygui.msgbox(u'6个单双连续出现了', u'注意!')
+    print '------------------------------NEXT------------------------------'
 
-        print '------------------------------NEXT------------------------------'
+
+
+
+
+###############################测试最长字串################################
+    #addslist, dxlist, arrayList = get_data()
+    #get_max_length(addslist, dxlist, arrayList)
+
+
 
