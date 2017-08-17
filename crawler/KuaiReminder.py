@@ -49,23 +49,23 @@ def get_data():
         dxlist.append(ds)
 
     print '最近6次的值为： ' + str(arrayList)
-    return addslist,dxlist
+    return addslist,dxlist,arrayList
 
 
 if __name__ == '__main__':
     while 1==1:
         print 'waiting .................'
-        time.sleep(25)
+        time.sleep(30)
 
-        daxiaolist, danshuanglist = get_data()
+        daxiaolist, danshuanglist,originlist = get_data()
         print 'big small:' + str(daxiaolist)
         print 'pos pre:' + str(danshuanglist)
 
         if len(list(set(daxiaolist))) == 1:
-            easygui.msgbox(u'连续', u'注意!')
+            easygui.msgbox(str(originlist), u'注意!')
             #easygui.msgbox(u'6个大小连续出现了', u'注意!')
         if len(list(set(danshuanglist))) == 1:
-            easygui.msgbox(u'连续', u'注意!')
+            easygui.msgbox(str(originlist), u'注意!')
             #easygui.msgbox(u'6个单双连续出现了', u'注意!')
 
         print '------------------------------NEXT------------------------------'
