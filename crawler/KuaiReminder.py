@@ -4,7 +4,7 @@ import easygui
 import requests
 import time
 
-url = 'http://yfcp807.com/tools/ssc_ajax.ashx?A=GetLotteryOpen&S=yfvip&U=xxxxxxxx'
+url = 'http://yfcp807.com/tools/ssc_ajax.ashx?A=GetLotteryOpen&S=yfvip&U=xxxxxxx'
 
 
 header = {
@@ -20,7 +20,7 @@ header = {
 postdata = {
     'A': 'GetLotteryOpen',
     'S': 'yfvip',
-    'U':'wchy2827873682',
+    'U':'xxxxxxx',
     'Action' : 'GetLotteryOpen',
     'LotteryCode': 1407,
     'IssueNo' : 0,
@@ -28,7 +28,6 @@ postdata = {
     'SourceName' : 'PC'
 }
 
-s = requests.session()
 def log_in():
     pass
 
@@ -41,22 +40,45 @@ def get_data():
     for key in ar:
         sv = key['LotteryOpen'].split(',')
         adds = sum(int(a) for a in sv)
+        #adds = adds // 11
+        print adds
         addslist.append(adds)
-
-    #addslist = [1,1,1,1,1,1]
+    addslist = [1,1,1,1,1,1]
     print '最近6次的值为： ' + str(addslist)
     return addslist
-    #return len(list(set(addslist)))
 
-def alert_u():
+def should_alert_u(list):
+    big = (i >10 for i in list)
+    small = (i<10 for i in list)
+    jishu = (i%2==1 for i in list)
+    oushu = (i%2==0 for i in list)
+
+    if len(big)== len(list):
+        return True
+    if len(small) == len(list):
+        return True
+    if len(jishu) == len(list):
+        return True
+    if len(oushu) == len(list):
+        return True
+    return False
+
+def auto_bet(name, money):
     pass
 
-
 if __name__ == '__main__':
-    while 1==1:
-        l = get_data()
-        time.sleep(5)
-        if len(list(set(l))) == 1:
-            print l
-            easygui.msgbox(u'6个连续出现了', u'注意快3')
+    # account = 'xxxxx'
+    # pwd = 'xxxxxx'
+    # money = 5
+    # while 1==1:
+    #     l = get_data()
+    #     time.sleep(30)
+    #     if should_alert_u(l):
+    #         print l
+    #         #auto_bet(account,money)
+    #         easygui.msgbox(u'6连大龙出现了!', u'注意捡钱!')
+
+    should_alert_u(get_data())
+
+
 
