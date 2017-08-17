@@ -4,7 +4,7 @@ import easygui
 import requests
 import time
 
-url = 'http://yfcp807.com/tools/ssc_ajax.ashx?A=GetLotteryOpen&S=yfvip&U=xxxxxxx'
+url = 'http://yfcp807.com/tools/ssc_ajax.ashx?A=GetLotteryOpen&S=yfvip&U=wchy2827873682'
 
 
 header = {
@@ -20,7 +20,7 @@ header = {
 postdata = {
     'A': 'GetLotteryOpen',
     'S': 'yfvip',
-    'U':'xxxxxxx',
+    'U':'wchy2827873682',
     'Action' : 'GetLotteryOpen',
     'LotteryCode': 1407,
     'IssueNo' : 0,
@@ -48,19 +48,25 @@ def get_data():
     return addslist
 
 def should_alert_u(list):
+    big , small , jishu , oushu = [],[],[],[]
     big = (i >10 for i in list)
+    print (i for i in big)
     small = (i<10 for i in list)
+    print small
     jishu = (i%2==1 for i in list)
     oushu = (i%2==0 for i in list)
-
-    if len(big)== len(list):
-        return True
-    if len(small) == len(list):
-        return True
-    if len(jishu) == len(list):
-        return True
-    if len(oushu) == len(list):
-        return True
+    if big:
+        if len(big)==len(list):
+            return True
+    if small:
+        if len(small) == len(list):
+            return True
+    if jishu:
+        if len(jishu) == len(list):
+            return True
+    if oushu:
+        if len(oushu) == len(list):
+            return True
     return False
 
 def auto_bet(name, money):
