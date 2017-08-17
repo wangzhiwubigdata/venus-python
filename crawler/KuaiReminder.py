@@ -55,7 +55,7 @@ def get_data():
 if __name__ == '__main__':
     while 1==1:
         print 'waiting .................'
-        time.sleep(20)
+        time.sleep(25)
 
         daxiaolist, danshuanglist = get_data()
         print 'big small:' + str(daxiaolist)
