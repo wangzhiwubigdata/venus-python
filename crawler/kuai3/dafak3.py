@@ -3,7 +3,7 @@ import json
 import easygui
 import requests
 import time
-
+import itchat
 url = 'http://yfcp807.com/tools/ssc_ajax.ashx?A=GetLotteryOpen&S=yfvip&U=132974199455'
 
 header = {
@@ -23,7 +23,7 @@ postdata = {
     'Action': 'GetLotteryOpen',
     'LotteryCode': 1407,
     'IssueNo': 0,
-    'DataNum': 6,
+    'DataNum': 2,
     'SourceName': 'PC'
 }
 
@@ -57,16 +57,21 @@ def get_data():
 
 
 if __name__ == '__main__':
+    itchat.auto_login()
     while 1 == 1:
-        time.sleep(25)
+        print "start....."
+        now = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
         print time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
         dslist, dxlist = get_data()
         print dxlist
         print dslist
         if len(list(set(dxlist))) == 1:
             #playSound();
-            easygui.msgbox(u'大发6连大小', u'注意快3')
-
+            #easygui.msgbox(u'大小', u'注意')
+            itchat.send(u'大小'+ now, toUserName='filehelper')
         if len(list(set(dslist))) == 1:
             #playSound();
-            easygui.msgbox(u'大发6连单双', u'注意快3')
+            #easygui.msgbox(u'单双', u'注意')
+            itchat.send(u'单双' + now, toUserName='filehelper')
+        time.sleep(25)
+        print "-----------------------------NEXT---------------------------------"
