@@ -23,7 +23,7 @@ postdata = {
     'Action': 'GetLotteryOpen',
     'LotteryCode': 1407,
     'IssueNo': 0,
-    'DataNum': 2,
+    'DataNum': 7,
     'SourceName': 'PC'
 }
 
@@ -31,7 +31,8 @@ s = requests.session()
 
 
 def log_in():
-    pass
+    itchat.auto_login(hotReload=True)
+
 
 
 def get_data():
@@ -55,9 +56,19 @@ def get_data():
     print '最近6次的值为： ' + str(arrayList)
     return dsList, dxlist
 
+def send_msg(time,dx):
+    users = itchat.search_friends(name='wangchangye')
+    # 获取好友全部信息,返回一个列表,列表内是一个字典
+    print(users)
+    # 获取`UserName`,用于发送消息
+    userName = users[0]['UserName']
+    print "k3->"+dx +"->"+str(time)
+    itchat.send("k3-->"+str(time), toUserName=userName)
 
 if __name__ == '__main__':
+
     itchat.auto_login()
+
     while 1 == 1:
         print "start....."
         now = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
@@ -68,10 +79,12 @@ if __name__ == '__main__':
         if len(list(set(dxlist))) == 1:
             #playSound();
             #easygui.msgbox(u'大小', u'注意')
-            itchat.send(u'大小'+ now, toUserName='filehelper')
+            #itchat.send(u'大小'+ now, toUserName='filehelper')
+            send_msg(now,"大小")
         if len(list(set(dslist))) == 1:
             #playSound();
             #easygui.msgbox(u'单双', u'注意')
-            itchat.send(u'单双' + now, toUserName='filehelper')
+            #itchat.send(u'单双' + now, toUserName='filehelper')
+            send_msg(now,"单双")
         time.sleep(25)
         print "-----------------------------NEXT---------------------------------"
