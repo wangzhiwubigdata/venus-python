@@ -79,6 +79,13 @@ def send_msg(time,dis):
     print dis + "-->" + str(time)
     itchat.send(dis + "-->" + str(time), toUserName=userName)
 
+def send_msg_to_niexiong(time,dis):
+    users = itchat.search_friends(name='nilxon')
+    # 获取好友全部信息,返回一个列表,列表内是一个字典
+    userName = users[0]['UserName']
+    print dis + "-->" + str(time)
+    itchat.send(dis + "-->" + str(time), toUserName=userName)
+
 def get_other_data(key):
     url,headers,postdata = get_header(key)
     dsList = []
@@ -107,16 +114,15 @@ def get_other_data(key):
 
 
 if __name__ == '__main__':
-    import sys
-    reload(sys)
 
     #登录
-    #log_in()
+    log_in()
     #开始循环
     while 1 == 1:
 
-
+        time.sleep(300)
         print "start....."
+
         now = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
         print now
         for key in districts.keys():
@@ -125,7 +131,10 @@ if __name__ == '__main__':
             print dslist
             if len(list(set(dxlist))) == 1:
                 send_msg(now,districts[key])
+                send_msg_to_niexiong(now, districts[key])
             if len(list(set(dslist))) == 1:
                 send_msg(now,districts[key])
-        time.sleep(300)
+                send_msg_to_niexiong(now, districts[key])
+
+
         print "-----------------------------NEXT---------------------------------"

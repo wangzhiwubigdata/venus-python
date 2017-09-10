@@ -52,7 +52,7 @@ def log_in():
 
 def get_dafa_data():
     url,headers,postdata = get_header(1407)
-    print url,postdata,headers
+    #print url,postdata,headers
     dsList = []
     dxlist = []
     arrayList = []
@@ -73,14 +73,19 @@ def get_dafa_data():
     print '最近6次的值为： ' + str(arrayList)
     return dsList, dxlist
 
-def send_msg(time):
+def send_msg(time,dis):
     users = itchat.search_friends(name='mapper')
     # 获取好友全部信息,返回一个列表,列表内是一个字典
-    print(users)
     userName = users[0]['UserName']
-    print "k3-->" + str(time)
-    itchat.send("k3-->"+str(time), toUserName=userName)
+    print dis + "-->" + str(time)
+    itchat.send(dis + "-->" + str(time), toUserName=userName)
 
+def send_msg_to_niexiong(time,dis):
+    users = itchat.search_friends(name='nilxon')
+    # 获取好友全部信息,返回一个列表,列表内是一个字典
+    userName = users[0]['UserName']
+    print dis + "-->" + str(time)
+    itchat.send(dis + "-->" + str(time), toUserName=userName)
 
 def get_other_data(url,postdata,headers):
     dsList = []
@@ -109,8 +114,8 @@ def get_other_data(url,postdata,headers):
 
 
 if __name__ == '__main__':
-    import sys
-    reload(sys)
+    # import sys
+    # reload(sys)
 
     #登录
     log_in()
@@ -124,9 +129,11 @@ if __name__ == '__main__':
         print dxlist
         print dslist
         if len(list(set(dxlist))) == 1:
-            send_msg(now)
+            send_msg(now,'dafa')
+            send_msg_to_niexiong(now, 'dafa')
         if len(list(set(dslist))) == 1:
-            send_msg(now)
+            send_msg(now,'dafa')
+            send_msg_to_niexiong(now, 'dafa')
         time.sleep(25)
 
         print "-----------------------------NEXT---------------------------------"
