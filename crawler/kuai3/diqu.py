@@ -16,17 +16,16 @@ districts = {
     '1405':u'湖北',
     '1401':u'江苏',
     '1404':u'吉林',
-    '1410':u'上海',
-    '1407':u'大发'
+    '1410':u'上海'
 }
-def get_header(district):
+def get_header(key):
 
     url = 'http://yfcp807.com/tools/ssc_ajax.ashx?A=GetLotteryOpen&S=yfvip&U=132974199455'
 
     headers = {
         'Host': 'yfcp807.com',
         'Origin': 'http://yfcp807.com',
-        'Referer': 'http://yfcp807.com/lottery/K3/'+ str(district), #1407
+        'Referer': 'http://yfcp807.com/lottery/K3/'+ str(key), #1407
         'Content-Type': 'application/x-www-form-urlencoded',
         'X-Requested-With': 'XMLHttpRequest',
         'Cookie': 'route=134217aa4e8e12a08665fba45d9ec79f; token=94b04c7bfa75e1886efde9beaee135e4; random=2580; C_SessionId=e55fa638-1bcc-4d49-aca3-3fd4cabb83a5',
@@ -38,7 +37,7 @@ def get_header(district):
         'S': 'yfvip',
         'U': '132974199455',
         'Action': 'GetLotteryOpen',
-        'LotteryCode': district, #1407
+        'LotteryCode': key, #1407
         'IssueNo': 0,
         'DataNum': 7,
         'SourceName': 'PC'
@@ -73,16 +72,15 @@ def get_dafa_data():
     print '最近6次的值为： ' + str(arrayList)
     return dsList, dxlist
 
-def send_msg(time):
+def send_msg(time,dis):
     users = itchat.search_friends(name='mapper')
     # 获取好友全部信息,返回一个列表,列表内是一个字典
-    print(users)
     userName = users[0]['UserName']
-    print "k3-->" + str(time)
-    itchat.send("k3-->"+str(time), toUserName=userName)
+    print dis + "-->" + str(time)
+    itchat.send(dis + "-->" + str(time), toUserName=userName)
 
-
-def get_other_data(url,postdata,headers):
+def get_other_data(key):
+    url,headers,postdata = get_header(key)
     dsList = []
     dxlist = []
     arrayList = []
@@ -113,20 +111,21 @@ if __name__ == '__main__':
     reload(sys)
 
     #登录
-    log_in()
+    #log_in()
     #开始循环
     while 1 == 1:
+
+
         print "start....."
         now = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
         print now
-
-        dslist, dxlist = get_dafa_data()
-        print dxlist
-        print dslist
-        if len(list(set(dxlist))) == 1:
-            send_msg(now)
-        if len(list(set(dslist))) == 1:
-            send_msg(now)
-        time.sleep(25)
-
+        for key in districts.keys():
+            dslist, dxlist = get_other_data(key)
+            print dxlist
+            print dslist
+            if len(list(set(dxlist))) == 1:
+                send_msg(now,districts[key])
+            if len(list(set(dslist))) == 1:
+                send_msg(now,districts[key])
+        time.sleep(300)
         print "-----------------------------NEXT---------------------------------"
