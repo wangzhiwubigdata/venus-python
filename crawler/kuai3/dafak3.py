@@ -21,12 +21,12 @@ districts = {
 }
 def get_header(district):
 
-    url = 'http://yfcp807.com/tools/ssc_ajax.ashx?A=GetLotteryOpen&S=yfvip&U=132974199455'
+    url = 'http://yfcp809.com/tools/ssc_ajax.ashx?A=GetLotteryOpen&S=yfvip&U=wchy563630987'
 
     headers = {
-        'Host': 'yfcp807.com',
-        'Origin': 'http://yfcp807.com',
-        'Referer': 'http://yfcp807.com/lottery/K3/'+ str(district), #1407
+        'Host': 'yfcp809.com',
+        'Origin': 'http://yfcp809.com',
+        'Referer': 'http://yfcp809.com/lottery/K3/'+ str(district), #1407
         'Content-Type': 'application/x-www-form-urlencoded',
         'X-Requested-With': 'XMLHttpRequest',
         'Cookie': 'route=134217aa4e8e12a08665fba45d9ec79f; token=94b04c7bfa75e1886efde9beaee135e4; random=2580; C_SessionId=e55fa638-1bcc-4d49-aca3-3fd4cabb83a5',
@@ -40,7 +40,7 @@ def get_header(district):
         'Action': 'GetLotteryOpen',
         'LotteryCode': district, #1407
         'IssueNo': 0,
-        'DataNum': 7,
+        'DataNum': 8,
         'SourceName': 'PC'
     }
     return url,headers,postdata
@@ -58,6 +58,7 @@ def get_dafa_data():
     arrayList = []
     response = requests.post(url, postdata, headers=headers)
     html = response.text
+    print html
     jsons = json.loads(html)
     ar = jsons.get('BackData')
     for key in ar:
@@ -82,6 +83,13 @@ def send_msg(time,dis):
 
 def send_msg_to_niexiong(time,dis):
     users = itchat.search_friends(name='nilxon')
+    # 获取好友全部信息,返回一个列表,列表内是一个字典
+    userName = users[0]['UserName']
+    print dis + "-->" + str(time)
+    itchat.send(dis + "-->" + str(time), toUserName=userName)
+
+def send_msg_to_luxibo(time,dis):
+    users = itchat.search_friends(name='luxibo')
     # 获取好友全部信息,返回一个列表,列表内是一个字典
     userName = users[0]['UserName']
     print dis + "-->" + str(time)
@@ -131,9 +139,11 @@ if __name__ == '__main__':
         if len(list(set(dxlist))) == 1:
             send_msg(now,'dafa')
             send_msg_to_niexiong(now, 'dafa')
+            #send_msg_to_luxibo(now,'dafa')
         if len(list(set(dslist))) == 1:
             send_msg(now,'dafa')
             send_msg_to_niexiong(now, 'dafa')
-        time.sleep(25)
+            #send_msg_to_luxibo(now, 'dafa')
+        time.sleep(40)
 
         print "-----------------------------NEXT---------------------------------"
