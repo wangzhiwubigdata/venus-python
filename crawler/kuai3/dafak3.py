@@ -5,6 +5,9 @@ import json
 import requests
 import time
 import itchat
+from pip._vendor.requests.packages.urllib3 import Retry
+from requests.adapters import HTTPAdapter
+requests.adapters.DEFAULT_RETRIES = 5
 
 districts = {
     '1402':u'安徽',
@@ -40,7 +43,7 @@ def get_header(district):
         'Action': 'GetLotteryOpen',
         'LotteryCode': district, #1407
         'IssueNo': 0,
-        'DataNum': 8,
+        'DataNum': 7,
         'SourceName': 'PC'
     }
     return url,headers,postdata
@@ -56,7 +59,13 @@ def get_dafa_data():
     dsList = []
     dxlist = []
     arrayList = []
-    response = requests.post(url, postdata, headers=headers)
+    s = requests.session()
+    retries = Retry(total=5,
+                    backoff_factor=0.1,
+                    status_forcelist=[500, 502, 503, 504])
+    s.mount('http://', HTTPAdapter(max_retries=retries))
+
+    response = s.post(url, postdata, headers=headers)
     html = response.text
     print html
     jsons = json.loads(html)
@@ -139,11 +148,11 @@ if __name__ == '__main__':
         if len(list(set(dxlist))) == 1:
             send_msg(now,'dafa')
             send_msg_to_niexiong(now, 'dafa')
-            #send_msg_to_luxibo(now,'dafa')
+            send_msg_to_luxibo(now,'dafa')
         if len(list(set(dslist))) == 1:
             send_msg(now,'dafa')
             send_msg_to_niexiong(now, 'dafa')
-            #send_msg_to_luxibo(now, 'dafa')
+            send_msg_to_luxibo(now, 'dafa')
         time.sleep(40)
 
         print "-----------------------------NEXT---------------------------------"
