@@ -24,12 +24,12 @@ districts = {
 }
 def get_header(district):
 
-    url = 'http://yfcp809.com/tools/ssc_ajax.ashx?A=GetLotteryOpen&S=yfvip&U=wchy563630987'
+    url = 'http://yfcp803.com/tools/ssc_ajax.ashx?A=GetLotteryOpen&S=yfvip&U=wchy563630987'
 
     headers = {
-        'Host': 'yfcp809.com',
-        'Origin': 'http://yfcp809.com',
-        'Referer': 'http://yfcp809.com/lottery/K3/'+ str(district), #1407
+        'Host': 'yfcp803.com',
+        'Origin': 'http://yfcp803.com',
+        'Referer': 'http://yfcp803.com/lottery/K3/'+ str(district), #1407
         'Content-Type': 'application/x-www-form-urlencoded',
         'X-Requested-With': 'XMLHttpRequest',
         'Cookie': 'route=134217aa4e8e12a08665fba45d9ec79f; token=94b04c7bfa75e1886efde9beaee135e4; random=2580; C_SessionId=e55fa638-1bcc-4d49-aca3-3fd4cabb83a5',
@@ -156,6 +156,6 @@ if __name__ == '__main__':
             send_msg(now,'dafa')
             send_msg_to_niexiong(now, 'dafa')
             send_msg_to_luxibo(now, 'dafa')
-        time.sleep(40)
+        time.sleep(25)
 
         print "-----------------------------NEXT---------------------------------"

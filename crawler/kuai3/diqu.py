@@ -5,6 +5,9 @@ import json
 import requests
 import time
 import itchat
+from pip._vendor.requests.packages.urllib3 import Retry
+from requests.adapters import HTTPAdapter
+requests.adapters.DEFAULT_RETRIES = 5
 
 districts = {
     '1402':u'安徽',
@@ -20,12 +23,12 @@ districts = {
 }
 def get_header(key):
 
-    url = 'http://yfcp809.com/tools/ssc_ajax.ashx?A=GetLotteryOpen&S=yfvip&U=wchy563630987'
+    url = 'http://yfcp803.com/tools/ssc_ajax.ashx?A=GetLotteryOpen&S=yfvip&U=wchy563630987'
 
     headers = {
-        'Host': 'yfcp809.com',
-        'Origin': 'http://yfcp809.com',
-        'Referer': 'http://yfcp809.com/lottery/K3/'+ str(key), #1407
+        'Host': 'yfcp803.com',
+        'Origin': 'http://yfcp803.com',
+        'Referer': 'http://yfcp803.com/lottery/K3/'+ str(key), #1407
         'Content-Type': 'application/x-www-form-urlencoded',
         'X-Requested-With': 'XMLHttpRequest',
         'Cookie': 'route=134217aa4e8e12a08665fba45d9ec79f; token=94b04c7bfa75e1886efde9beaee135e4; random=2580; C_SessionId=e55fa638-1bcc-4d49-aca3-3fd4cabb83a5',
@@ -55,6 +58,15 @@ def get_dafa_data():
     dsList = []
     dxlist = []
     arrayList = []
+
+    s = requests.session()
+
+    s.keep_alive = False
+
+    retries = Retry(total=5,
+                    backoff_factor=0.1,
+                    status_forcelist=[500, 502, 503, 504])
+    s.mount('http://', HTTPAdapter(max_retries=retries))
     response = requests.post(url, postdata, headers=headers)
     html = response.text
     jsons = json.loads(html)
