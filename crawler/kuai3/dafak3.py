@@ -59,16 +59,16 @@ def get_dafa_data():
     dsList = []
     dxlist = []
     arrayList = []
-    s = requests.session()
+    # s = requests.session()
 
-    s.keep_alive = False
+    # s.keep_alive = False
 
-    retries = Retry(total=5,
-                    backoff_factor=0.1,
-                    status_forcelist=[500, 502, 503, 504])
-    s.mount('http://', HTTPAdapter(max_retries=retries))
+    # retries = Retry(total=5,
+    #                 backoff_factor=0.1,
+    #                 status_forcelist=[500, 502, 503, 504])
+    # s.mount('http://', HTTPAdapter(max_retries=retries))
 
-    response = s.post(url, postdata, headers=headers)
+    response = requests.post(url, postdata, headers=headers)
     html = response.text
     print html
     jsons = json.loads(html)
